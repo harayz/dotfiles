@@ -235,7 +235,7 @@ done
 
 # More functions
 tagsmenu() {
-        wmiir ls /tag | sed 's|/||; /^sel$/d' | eval $WMII_MENU
+	wmiir ls /tag | sed 's|/||; /^sel$/d' | eval $WMII_MENU
 }
 
 actionlist() {
