@@ -27,7 +27,7 @@ wmiir write /colrules <<!
 
 # Tagging Rules
 wmiir write /tagrules <<!
-/Avidemux.*/ -> ~+0
+/Avidemux.*/ -> ~
 /Azureus.*/ -> 0
 /Chrome.*/ -> 9
 /Chromium.*/ -> 9
