@@ -39,6 +39,7 @@ wmiir write /tagrules <<!
 /MPlayer.*/ -> ~
 /Pidgin.*/ -> 0
 /Synaptic.*/ -> 0
+/VirtualBox.*/ -> V
 /Vuze.*/ -> 0
 /XMMS.*/ -> ~+0
 /.*/ -> sel
