@@ -48,7 +48,8 @@ wmiir write /tagrules <<!
 
 # Status Bar Info
 status() {
-	echo -n 'Wlan0:' $(/sbin/iwconfig wlan0 | sed 's/ /\n/g' | grep Quality) '|' \
+	echo -n 'Host: mocha |' \
+					'Wlan0:' $(/sbin/iwconfig wlan0 | sed 's/ /\n/g' | grep Quality) '|' \
 					'IP (wlan0):' $(ifconfig wlan0 | grep 'inet addr' | sed 's/\s*inet addr://' | sed 's/ .*$//') '|' \
 					'IP (eth0):' $(ifconfig eth0| grep 'inet addr' | sed 's/\s*inet addr://' | sed 's/ .*$//') '|' \
 					'Vol:' $(aumix -q | grep vol | sed 's/vol [0-9]*, //' | sed 's/, P//') '|' \
