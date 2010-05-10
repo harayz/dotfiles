@@ -81,4 +81,3 @@ augroup comments
   autocmd FileType c,java,scala set comments=sr:/*,mb:*,el:*/,://
   autocmd FileType c,java,scala set formatoptions+=croql
 augroup end
-
