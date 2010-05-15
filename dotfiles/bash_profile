@@ -8,6 +8,7 @@ PES_JAR=$HOME/proj/lousycoder/pes/target/pes-*.jar
 ###############################################################################
 export ANT_OPTS="-Xms1024M -Xmx1024M"
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
+export IDEA_JDK=/usr
 export JDK_HOME=/usr
 export JAVA_HOME=/usr
 export JAVA_COMPILER=jitc
