@@ -10,7 +10,7 @@
   editor = vi
   excludesfile = /home/minhuang/.gitignore
 [alias]
-  ar = !git-auto-rm
+  ar = !git ls-files --deleted | xargs git rm
   br = branch
   ci = commit
   co = !sh -c 'git checkout $1 && git submodule update && git submodule update' -
