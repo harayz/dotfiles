@@ -12,7 +12,6 @@ export IDEA_JDK=/usr
 export JDK_HOME=/usr
 export JAVA_HOME=/usr
 export JAVA_COMPILER=jitc
-export M2_HOME=$HOME/opt/maven
 export M2_REPO=$HOME/.m2/repository
 export NB_HOME=$HOME/opt/netbeans
 export CLASSPATH=.:$PES_JAR:$CLASSPATH
