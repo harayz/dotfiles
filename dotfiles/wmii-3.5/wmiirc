@@ -263,6 +263,8 @@ xset r rate 275 30
 aticonfig --set-powerstate=1
 # Run xscreensaver
 [ "`ps aux | grep xscreensaver | grep -v grep`" =  "" ] && xscreensaver -nosplash &
+# Run synergy
+[ "`ps aux | grep synergys | grep -v grep`" =  "" ] && synergys
 
 # Stop any running instances of wmiirc
 echo Start wmiirc | wmiir write /event || exit 1
