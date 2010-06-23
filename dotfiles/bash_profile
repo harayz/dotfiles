@@ -1,26 +1,16 @@
 ###############################################################################
-# Personal
-###############################################################################
-PES_JAR=$HOME/proj/lousycoder/pes/target/pes-*.jar
-
-###############################################################################
 # Java
 ###############################################################################
-export ANT_OPTS="-Xms1024M -Xmx1024M"
+export ANT_OPTS="-Xms128M -Xmx128M"
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export JDK_HOME=/usr
 export JAVA_HOME=/usr
 export JAVA_COMPILER=jitc
-export M2_HOME=$HOME/opt/maven
-export M2_REPO=$HOME/.m2/repository
-export NB_HOME=$HOME/opt/netbeans
-export CLASSPATH=.:$PES_JAR:$CLASSPATH
 
 ###############################################################################
 # Scala
 ###############################################################################
 export SCALA_HOME=/usr
-export SBT_HOME=$HOME/opt/sbt
 
 ###############################################################################
 # Ruby
@@ -30,11 +20,6 @@ export RUBYOPT=rubygems
 export GEM_HOME=/var/lib/gems/1.8
 
 ###############################################################################
-# Haskell
-###############################################################################
-export GHCRTS="-K512M"
-
-###############################################################################
 # Debian package maintenance
 ###############################################################################
 export GPGKEY=5DB05144
@@ -42,26 +27,15 @@ export DEBEMAIL="Min Huang <min.huang@alumni.usc.edu>"
 export DEBFULLNAME="Min Huang"
 
 ###############################################################################
-# Browser Extensions
-###############################################################################
-export XULRUNNER_HOME=/usr/lib/xulrunner-1.9.1
-export DEPOT_TOOLS_HOME=$HOME/proj/google/depot-tools
-export GYP_GENERATORS=make
-export LD_LIBRARY_PATH=$XUL_RUNNER_HOME:$LD_LIBRARY_PATH
-
-###############################################################################
 # Other
 ###############################################################################
-export GIT=lousycod@lousycoder.com:/home/lousycod/local/share/git
 export GIT_EDITOR=vi
 export SVN_EDITOR=vi
-export WINE_PREFIX=$HOME/.wine
 
 ###############################################################################
 # Bash
 ###############################################################################
-export PATH=$HOME/bin:/sbin:$PATH
-export PATH=$M2_HOME/bin:$GEM_HOME/bin:$DEPOT_TOOLS_HOME:$PATH
+export PATH=$HOME/bin:$PATH
 source $HOME/.bash_aliases
 source $HOME/.bash_functions
 if [ -e $HOME/.bash_local ]; then
