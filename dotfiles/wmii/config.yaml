@@ -78,7 +78,7 @@ display:
   column:
     mode: default
     rule: |
-      /.*/ -> 50+50
+      /.*/ -> 60+40
 
   ##
   # Mapping of clients to views they must appear on.
