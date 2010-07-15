@@ -20,7 +20,6 @@ program:
   editor: gvim
   filer: thunar
 
-
 ##
 # Appearance settings.
 #
@@ -128,11 +127,11 @@ display:
     - volume:
         refresh: 3
         content: |
-          'Vol: ' + `aumix -q | grep vol | sed 's/vol [0-9]*, //'`
+          'Vol: ' + `aumix -q | grep vol | sed 's/vol [0-9]*, //' | sed 's/, P//'`
     - temperature:
         refresh: 5
         content: |
-          'Temp: ' + `cat /proc/acpi/thermal_zone/TZ00/temperature | sed 's/temperature:\s*//'`
+          'Temp: ' + `cat /proc/acpi/thermal_zone/THM0/temperature | sed 's/temperature:\s*//'`
     - battery:
         refresh: 5
         content: |
