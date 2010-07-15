@@ -98,6 +98,8 @@ display:
     - /MPlayer.*/ : ~
     - /Pidgin.*/ : 0
     - /XMMS.*/ : ~+mp3
+    - /.*/ : sel
+    - /.*/ : 1
 
   ##
   # Self-refreshing buttons on the status bar.
@@ -178,7 +180,7 @@ control:
   ##
   # Sequence keys.
   #
-  prev: b
+  prev: u
   next: n
 
   ##
