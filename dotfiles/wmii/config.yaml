@@ -90,14 +90,14 @@ display:
   #
   client:
     - /Chrome.*/ : 9
-    - /Gimp.*/ : ~+gimp
-    - /Gitk.*/ : ~
-    - /GQview.*/ : ~
+    - /Gimp.*/ : gimp
+    - /Gitk.*/ : '~'
+    - /GQview.*/ : '~'
     - /Icedove.*/ : mail
     - /Iceweasel.*/ : 9
-    - /MPlayer.*/ : ~
+    - /MPlayer.*/ : '~'
     - /Pidgin.*/ : 0
-    - /XMMS.*/ : ~+mp3
+    - /XMMS.*/ : mp3
     - /.*/ : sel
     - /.*/ : 1
 
