@@ -89,7 +89,15 @@ display:
   # Processing stops after the first matching mapping is applied.
   #
   client:
-    - /MPlayer|VLC/ : ~
+    - /Chrome.*/ : 8
+    - /Gimp.*/ : ~+gimp
+    - /Gitk.*/ : ~
+    - /GQview.*/ : ~
+    - /Icedove.*/ : mail
+    - /Iceweasel.*/ : 8
+    - /MPlayer.*/ : ~
+    - /Pidgin.*/ : 9
+    - /XMMS.*/ : ~+mp3
 
   ##
   # Self-refreshing buttons on the status bar.
