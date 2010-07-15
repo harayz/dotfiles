@@ -89,14 +89,14 @@ display:
   # Processing stops after the first matching mapping is applied.
   #
   client:
-    - /Chrome.*/ : 8
+    - /Chrome.*/ : 9
     - /Gimp.*/ : ~+gimp
     - /Gitk.*/ : ~
     - /GQview.*/ : ~
     - /Icedove.*/ : mail
-    - /Iceweasel.*/ : 8
+    - /Iceweasel.*/ : 9
     - /MPlayer.*/ : ~
-    - /Pidgin.*/ : 9
+    - /Pidgin.*/ : 0
     - /XMMS.*/ : ~+mp3
 
   ##
@@ -233,16 +233,16 @@ control:
       next_view.focus
 
     # focus the view whose index or name equals the pressed number
-    ${mod}-1: focus_view tags[0] || 1
-    ${mod}-2: focus_view tags[1] || 2
-    ${mod}-3: focus_view tags[2] || 3
-    ${mod}-4: focus_view tags[3] || 4
-    ${mod}-5: focus_view tags[4] || 5
-    ${mod}-6: focus_view tags[5] || 6
-    ${mod}-7: focus_view tags[6] || 7
-    ${mod}-8: focus_view tags[7] || 8
-    ${mod}-9: focus_view tags[8] || 9
-    ${mod}-0: focus_view tags[9] || 10
+    ${mod}-1: focus_view 1
+    ${mod}-2: focus_view 2
+    ${mod}-3: focus_view 3
+    ${mod}-4: focus_view 4
+    ${mod}-5: focus_view 5
+    ${mod}-6: focus_view 6
+    ${mod}-7: focus_view 7
+    ${mod}-8: focus_view 8
+    ${mod}-9: focus_view 9
+    ${mod}-0: focus_view 0
 
     # focus the view whose name begins with the pressed alphabet
     ${view},a: t = tags.grep(/^a/i).first and focus_view(t)
