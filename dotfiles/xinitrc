@@ -9,6 +9,7 @@ synclient TouchpadOff=1
 xset m 2
 
 xscreensaver -nosplash &
+tpb -d
 eval `ssh-agent`
 
 while true; do
