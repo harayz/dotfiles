@@ -1,6 +1,7 @@
 ###############################################################################
 # Java
 ###############################################################################
+PES_JAR=$HOME/proj/lousycoder/pes/target/pes-*.jar
 export ANT_OPTS="-Xms128M -Xmx128M"
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export JDK_HOME=/usr
@@ -31,6 +32,14 @@ export DEBFULLNAME="Min Huang"
 ###############################################################################
 export GIT_EDITOR=vi
 export SVN_EDITOR=vi
+
+###############################################################################
+# Wmii
+###############################################################################
+WMII_IS_RUNNING=`ps a | grep wmii | awk '/[^"grep"] wmii$/'`
+if [ -n "$WMII_IS_RUNNING" ]; then
+  PROMPT_COMMAND='dirs | wmiir write /client/sel/label'
+fi
 
 ###############################################################################
 # Bash
