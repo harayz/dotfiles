@@ -30,7 +30,7 @@ histnum=5000
 
 # Column Rules
 wmiir write /colrules <<!
-/.*/ -> 50+50
+/.*/ -> 60+40
 !
 
 # Tagging Rules
