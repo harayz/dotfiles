@@ -35,6 +35,7 @@ wmiir write /colrules <<!
 
 # Tagging Rules
 wmiir write /tagrules <<!
+/Avidemux.*/ -> ~
 /Chrome.*/ -> 9
 /Gimp.*/ -> gimp
 /Gitk.*/ -> ~
