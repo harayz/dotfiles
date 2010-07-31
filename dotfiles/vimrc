@@ -42,17 +42,21 @@ set wildmenu
 set wildchar=<TAB>
 set wildignore=*.class,*.o,*.obj,*.bak,*.exe,*.jpg,*.png,*.gif
 set wildmode=list:full
+"set wrapmargin=80
 
 syntax on
 colorscheme default
 filetype plugin indent on
 
 map gc gdb<C-W>f
+" Map hjkl keys for navigating between splits
 map <C-H> <C-W>h
 map <C-J> <C-W>j
 map <C-K> <C-W>k
 map <C-L> <C-W>l
 map <C-_> <C-w>_
+" Map C-\ to open definition in a new tab
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 nmap ,t :set expandtab! list!
 nmap ,e :set expandtab!
@@ -61,6 +65,7 @@ nmap ,a :set autochdir!
 nmap ,h :set hlsearch!
 nmap ,n :set number!
 nmap ,w :set wrap!
+nmap ,c :!ctags --append=yes -R * &
 
 " Map F4 to strip all trailing whitespace
 nnoremap <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
