@@ -1,6 +1,7 @@
-.gitignore
+.classpath
+.project
+.settings
 pkg/*
-nbproject/*
 tags
 target/*
 *.iml
