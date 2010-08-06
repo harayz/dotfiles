@@ -1,0 +1,1 @@
+autocmd BufNewFile,BufRead ~/proj/opm/* source ~/proj/opm/project.vim
