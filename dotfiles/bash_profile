@@ -1,17 +1,21 @@
 ###############################################################################
 # Java
 ###############################################################################
-PES_JAR=$HOME/proj/lousycoder/pes/target/pes-*.jar
 export ANT_OPTS="-Xms128M -Xmx128M"
+export JAVA_HOME=/usr/lib/jvm/java-6-sun
+export ANT_OPTS="-Xms1024M -Xmx1024M"
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
-export JDK_HOME=/usr
-export JAVA_HOME=/usr
+export IDEA_JDK=$JAVA_HOME
+export JDK_HOME=$JAVA_HOME
 export JAVA_COMPILER=jitc
+export M2_HOME=/usr/share/maven2
+export M2_REPO=$HOME/.m2/repository
 
 ###############################################################################
 # Scala
 ###############################################################################
-export SCALA_HOME=/usr
+export SCALA_HOME=$HOME/opt/scala
+export SBT_HOME=$HOME/opt/sbt
 
 ###############################################################################
 # Ruby
@@ -34,17 +38,9 @@ export GIT_EDITOR=vi
 export SVN_EDITOR=vi
 
 ###############################################################################
-# Wmii
-###############################################################################
-WMII_IS_RUNNING=`ps a | grep wmii | awk '/[^"grep"] wmii$/'`
-if [ -n "$WMII_IS_RUNNING" ]; then
-  PROMPT_COMMAND='dirs | wmiir write /client/sel/label > /dev/null 2>&1'
-fi
-
-###############################################################################
 # Bash
 ###############################################################################
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:/sbin:$PATH
 source $HOME/.bash_aliases
 source $HOME/.bash_functions
 if [ -e $HOME/.bash_local ]; then
