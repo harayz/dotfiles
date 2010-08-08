@@ -40,7 +40,7 @@ export SVN_EDITOR=vi
 ###############################################################################
 # Bash
 ###############################################################################
-export PATH=$HOME/bin:/sbin:$PATH
+export PATH=$HOME/bin:$GEM_HOME/bin:/sbin:$PATH
 source $HOME/.bash_aliases
 source $HOME/.bash_functions
 if [ -e $HOME/.bash_local ]; then
