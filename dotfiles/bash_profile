@@ -4,7 +4,6 @@
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
 export ANT_OPTS="-Xms512M -Xmx1024M -XX:MaxPermSize=1024M"
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
-export IDEA_JDK=$JAVA_HOME
 export JDK_HOME=$JAVA_HOME
 export JAVA_COMPILER=jitc
 export M2_HOME=/usr/share/maven2
