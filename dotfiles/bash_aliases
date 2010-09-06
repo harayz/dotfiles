@@ -19,3 +19,4 @@ alias pdebuildi='pdebuild --use-pdebuild-internal --auto-debsign --debsign-k 5DB
 alias pbuilderlogin='sudo pbuilder login --save-after-login'
 alias mvnf='mvn -Dmaven.test.skip=true'
 alias mysql='mysql -u lousycoder -p'
+alias mtop='ps auxf | sort -nr -k 4 | head -10'
