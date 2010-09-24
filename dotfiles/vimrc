@@ -1,3 +1,4 @@
+set nocompatible
 set fileencoding=utf-8
 set termencoding=utf-8
 set autoindent
@@ -21,7 +22,6 @@ set list
 set listchars=tab:│\ ,trail:·
 "set mouse=a
 set nobackup
-set nocompatible
 set noerrorbells
 set nofoldenable
 set novisualbell
@@ -77,17 +77,19 @@ map <F12> :wincmd n<CR>:exe ":0r!find . -type f -not -path './.*'"<CR>1G:set buf
 "   Convenience mappings for resizing vertical splits
 nmap ] <C-W>>
 nmap [ <C-W><
+nmap ; :
+nmap ,/ :let @/=""<CR>
 nmap ,cd :cd %:p:h<CR>
 nmap ,d :bd<CR>:res<CR>
-nmap <silent> ,t :!ctags -R * &<CR>:FindFileCacheClear<CR>:FindFileCache .<CR><CR>
+nmap ,f <C-W>f:res<CR>
+nmap ,g :FindFile<CR>
 nmap ,h :set hlsearch!<CR>
 nmap ,n :set number!<CR>
-nmap ,w :set wrap!<CR>
-nmap ,r :res<CR>
-nmap ,f <C-W>f:res<CR>
-nmap ,x :wq<CR>:res<CR>
 nmap ,q :q!<CR>:res<CR>
-nmap ,g :FindFile<CR>
+nmap ,r :res<CR>
+nmap <silent> ,t :!ctags -R * &<CR>:FindFileCacheClear<CR>:FindFileCache .<CR><CR>
+nmap ,w :set wrap!<CR>
+nmap ,x :wq<CR>:res<CR>
 
 " Insert mode mappings (same as inoremap)
 "   When an auto-complete menu is presented, the first item is selected by
