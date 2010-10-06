@@ -15,7 +15,6 @@ alias pdebuildi='pdebuild --use-pdebuild-internal --auto-debsign --debsign-k 5DB
 alias pbuilderlogin='sudo pbuilder login --save-after-login'
 alias mysql='mysql -u lousycoder -p'
 alias mtop='ps auxf | sort -nr -k 4 | head -10'
-alias ssh-proxy='ssh -fND localhost:23231 lousycoder.com'
 
 ################################################################################
 # Development
