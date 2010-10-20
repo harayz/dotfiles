@@ -40,7 +40,7 @@ wmiir write /tagrules <<!
 /Gimp.*/ -> gimp
 /Gitk.*/ -> ~
 /GQview.*/ -> ~
-/Icedove.*/ -> mail
+/Icedove.*/ -> 9
 /Iceweasel.*/ -> 9
 /MPlayer.*/ -> ~
 /Pidgin.*/ -> 0
