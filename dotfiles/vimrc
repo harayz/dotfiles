@@ -45,8 +45,8 @@ set wildmode=list:full
 "set wrapmargin=80
 
 syntax on
-colorscheme delek
 filetype plugin indent on
+colorscheme default
 
 " Normal, visual, select, and operator mode mappings
 "   Map hjkl keys for navigating between splits
@@ -74,7 +74,6 @@ map <silent> <F5>
 map <F12> :wincmd n<CR>:exe ":0r!find . -type f -not -path './.*' -not -name '*.swp'"<CR>1G:set buftype=nofile<CR>:res<CR>
 
 " Normal mode mappings (same as nnoremap)
-"   Convenience mappings for resizing vertical splits
 nmap ] <C-W>>
 nmap [ <C-W><
 nmap ; :
@@ -110,8 +109,9 @@ highlight OverColLimit ctermbg=darkblue
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
 
 " VimClojure
-let vimclojure#NailgunClient = "$HOME/opt/vimclojure/ng"
-let clj_want_gorilla = 1
+let vimclojure#WantNailgun = 1
+let g:vimclojure#ParenRainbow = 1
+let g:vimclojure#DynamicHighlighting = 1
 
 " Source slime.vim to allow for SLIME like functionality
 source $HOME/.vim/slime.vim

@@ -10,10 +10,8 @@ alias less='less -r'
 alias grep='grep --color'
 alias mkdir='mkdir -p'
 alias scpr='rsync --partial --progress --rsh=ssh'
-alias uc='sudo update-alternatives --config'
 alias pdebuildi='pdebuild --use-pdebuild-internal --auto-debsign --debsign-k 5DB05144'
 alias pbuilderlogin='sudo pbuilder login --save-after-login'
-alias mysql='mysql -u lousycoder -p'
 alias mtop='ps auxf | sort -nr -k 4 | head -10'
 
 ################################################################################
@@ -22,4 +20,3 @@ alias mtop='ps auxf | sort -nr -k 4 | head -10'
 alias mvnf='mvn -Dmaven.test.skip=true'
 alias mysql='mysql -u lousycoder -p'
 alias scala='rlwrap scala -deprecation -Xmigration'
-alias ng-server="java -cp /usr/share/java/clojure.jar:/usr/share/java/clojure-contrib.jar:$HOME/opt/vimclojure/build/vimclojure.jar com.martiansoftware.nailgun.NGServer 127.0.0.1"
