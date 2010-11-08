@@ -34,6 +34,11 @@ export GEM_HOME=/var/lib/gems/1.8
 export GHCRTS="-K512M"
 
 ###############################################################################
+# Android
+###############################################################################
+ANDROID_HOME=$HOME/opt/android-sdk
+
+###############################################################################
 # Debian package maintenance
 ###############################################################################
 export GPGKEY=5DB05144
@@ -51,7 +56,7 @@ export WINE_PREFIX=$HOME/.wine
 ###############################################################################
 # Bash
 ###############################################################################
-export PATH=$HOME/bin:$GEM_HOME/bin:$SCALA_HOME/bin:/sbin:$PATH
+export PATH=$HOME/bin:$GEM_HOME/bin:$ANDROID_HOME/tools:$SCALA_HOME/bin:/sbin:$PATH
 source $HOME/.bash_aliases
 source $HOME/.bash_functions
 if [ -e $HOME/.bash_local ]; then
