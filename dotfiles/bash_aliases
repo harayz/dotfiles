@@ -13,7 +13,6 @@ alias scpr='rsync --partial --progress --rsh=ssh'
 alias pdebuildi='pdebuild --use-pdebuild-internal --auto-debsign --debsign-k 5DB05144'
 alias pbuilderlogin='sudo pbuilder login --save-after-login'
 alias mtop='ps auxf | sort -nr -k 4 | head -10'
-<<<<<<< HEAD
 
 ################################################################################
 # Development
