@@ -40,8 +40,8 @@ wmiir write /tagrules <<!
 /Gimp.*/ -> gimp
 /Gitk.*/ -> ~
 /GQview.*/ -> ~
-/Icedove.*/ -> 9
 /Iceweasel.*/ -> 9
+/JProfiler.*/ -> ~
 /MPlayer.*/ -> ~
 /Pidgin.*/ -> 0
 /XMMS.*/ -> mp3
