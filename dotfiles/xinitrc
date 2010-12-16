@@ -10,7 +10,7 @@ xset m 2
 
 xscreensaver -nosplash &
 tpb -d
-eval `ssh-agent`
+ssh-agent | sed -e '3d' > ~/.ssh/agent
 
 while true; do
   wmii
