@@ -11,6 +11,4 @@ bindkey -d ^@ stuff ^?
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
 
-setenv SSH_AUTH_SOCK $HOME/.ssh/screen_agent
-
 screen -t bash 0 bash -l
