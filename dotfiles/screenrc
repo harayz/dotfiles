@@ -11,4 +11,5 @@ bindkey -d ^@ stuff ^?
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
 
-screen -t bash 0 bash -l
+screen -t finch 0 finch
+screen -t bash  1 bash -l
