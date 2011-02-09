@@ -56,6 +56,7 @@ status() {
           'IP (wlan0):' $(ifconfig wlan0 | grep 'inet addr' | sed 's/\s*inet addr://' | sed 's/ .*$//') '|' \
           'IP (eth0):' $(ifconfig eth0 | grep 'inet addr' | sed 's/\s*inet addr://' | sed 's/ .*$//') '|' \
           'Vol:' $(aumix -q | grep vol | sed 's/vol [0-9]*, //' | sed 's/, P//') '|' \
+          'Fan:' $(cat /proc/acpi/ibm/fan | grep level | head -1 | sed 's/[^0-9]*//') '|' \
           'Temp:' $(cat /proc/acpi/thermal_zone/THM0/temperature | sed 's/temperature:\s*//') '|' \
           'Bat:' $(acpi -b | sed 's/\s*Battery 0:\s*[a-zA-Z]*, //' | sed 's/,.*$//') '|' \
           $(date +"%a %b %d %I:%M%p")
