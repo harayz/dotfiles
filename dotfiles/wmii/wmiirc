@@ -216,6 +216,10 @@ Key $MODKEY-F1 # Lower volume
 	aumix -v -10
 Key $MODKEY-F2 # Raise volume
 	aumix -v +10
+Key $MODKEY-F10
+	google-chrome
+Key $MODKEY-F11
+	thunar
 Key $MODKEY-F12 # Screensaver lock
 	xscreensaver-command --lock &
 
