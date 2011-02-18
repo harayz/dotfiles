@@ -52,6 +52,7 @@ export GIT_EDITOR=vi
 export SVN_EDITOR=vi
 export EDITOR=vi
 export WINE_PREFIX=$HOME/.wine
+export MAILCHECK=NO
 
 ###############################################################################
 # Bash
