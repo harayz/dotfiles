@@ -9,6 +9,7 @@ export JDK_HOME=$JAVA_HOME
 export M2_HOME=$HOME/opt/maven
 export M2_REPO=$HOME/.m2/repository
 export NB_HOME=$HOME/opt/netbeans
+export HADOOP_HOME=$HOME/opt/hadoop
 
 ###############################################################################
 # Scala
@@ -61,6 +62,7 @@ export PATH=$HOME/bin:\
 $JAVA_HOME/bin:\
 $M2_HOME/bin:\
 $GEM_HOME/bin:\
+$HADOOP_HOME/bin:\
 $ANDROID_HOME/tools:\
 $SCALA_HOME/bin:\
 /sbin:\
