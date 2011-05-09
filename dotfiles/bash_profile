@@ -64,6 +64,7 @@ $M2_HOME/bin:\
 $GEM_HOME/bin:\
 $HADOOP_HOME/bin:\
 $ANDROID_HOME/tools:\
+$ANDROID_HOME/platform-tools:\
 $SCALA_HOME/bin:\
 /sbin:\
 /usr/local/bin:\
