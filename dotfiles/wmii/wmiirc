@@ -39,7 +39,7 @@ wmiir write /tagrules <<!
 /Chrome.*/ -> 9
 /Gimp.*/ -> gimp
 /Gitk.*/ -> ~
-/GQview.*/ -> ~
+/Geeqie.*/ -> ~
 /Iceweasel.*/ -> 9
 /JProfiler.*/ -> ~
 /MPlayer.*/ -> ~
