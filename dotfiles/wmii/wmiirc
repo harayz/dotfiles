@@ -205,7 +205,7 @@ Key $MODKEY-m # Set column to max mode
 KeyGroup Running programs
 Key $MODKEY-a      # Open wmii actions menu
 	action $(wi_actions | wimenu -h "${hist}.actions" -n $histnum) &
-Key $MODKEY-p      # Open program menu
+Key $MODKEY-e      # Open program menu
 	eval wmiir setsid "$(wimenu -h "${hist}.progs" -n $histnum <$progsfile)" &
 
 Key $MODKEY-Return # Launch a terminal
@@ -235,6 +235,10 @@ Key $MODKEY-Control-t # Toggle all other key bindings
 	esac
 
 KeyGroup Tag actions
+Key $MODKEY-n
+	lua $(dirname $0)/tagswitcher next
+Key $MODKEY-p
+	lua $(dirname $0)/tagswitcher previous
 Key $MODKEY-t       # Change to another tag
 	(tag=$(wi_tags | wimenu -h "${hist}.tags" -n 50) && wmiir xwrite /ctl view $tag) &
 Key $MODKEY-Shift-t # Retag the selected client
