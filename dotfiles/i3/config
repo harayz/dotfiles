@@ -25,7 +25,7 @@ assign [class="VirtualBox"] 11: vm
 for_window [class="Gitk"] floating enable
 for_window [class="Google-chrome"] layout stacking
 for_window [class="jetbrains-idea"] layout stacking
-for_window [class="MPlayer"] floating enable
+for_window [class="mplayer"] floating enable
 for_window [class="VirtualBox"] layout stacking
 
 # color classes         border  back    text
