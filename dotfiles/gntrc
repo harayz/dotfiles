@@ -25,6 +25,6 @@ f7  = show-menu
 [GntWM::binding]
 c-a = action-list
 c-x = window-close
-c-l = window-next
-c-h = window-prev
+c-n = window-next
+c-p = window-prev
 c-w = window-list
