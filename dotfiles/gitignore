@@ -1,5 +1,8 @@
 project.vim
 tags
+*.ipr
+*.iml
+*.iws
 *.swp
 *.swo
 *~
