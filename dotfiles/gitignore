@@ -1,8 +1,11 @@
-project.vim
-tags
-*.ipr
-*.iml
-*.iws
+/.classpath
+/.project
+/.settings
+/project.vim
+/tags
+/*.ipr
+/*.iml
+/*.iws
 *.swp
 *.swo
 *~
