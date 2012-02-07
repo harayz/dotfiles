@@ -1,11 +1,16 @@
-/.classpath
-/.project
-/.settings
-/project.vim
-/tags
-/*.ipr
-/*.iml
-/*.iws
+# Eclipse
+.classpath
+.project
+.settings
+
+# IDEA
+*.iml
+*.ipr
+*.iws
+
+# Vim
+project.vim
+tags
 *.swp
 *.swo
 *~
