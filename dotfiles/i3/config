@@ -17,9 +17,9 @@ force_focus_wrapping no
 workspace_auto_back_and_forth no
 
 # workspace assignments; use xprop to find out WM_CLASS
+assign [class="jetbrains-idea"] 7: ide
 assign [class="Avidemux2_gtk"] 8: file
 assign [class="Google-chrome"] 9: www
-assign [class="jetbrains-idea"] 10: ide
 assign [class="VirtualBox"] 11: vm
 
 # per window commands
@@ -97,10 +97,10 @@ bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7: chat
+bindsym $mod+7 workspace 7: ide
 bindsym $mod+8 workspace 8: file
 bindsym $mod+9 workspace 9: www
-bindsym $mod+0 workspace 10: ide
+bindsym $mod+0 workspace 10: mail
 bindsym $mod+minus workspace 11: vm
 
 # move focused container to workspace
@@ -110,10 +110,10 @@ bindsym $mod+Shift+numbersign move workspace 3
 bindsym $mod+Shift+dollar move workspace 4
 bindsym $mod+Shift+percent move workspace 5
 bindsym $mod+Shift+asciicircum move workspace 6
-bindsym $mod+Shift+ampersand move workspace 7: chat
+bindsym $mod+Shift+ampersand move workspace 7: ide
 bindsym $mod+Shift+asterisk move workspace 8: file
 bindsym $mod+Shift+parenleft move workspace 9: www
-bindsym $mod+Shift+parenright move workspace 10: ide
+bindsym $mod+Shift+parenright move workspace 10: mail
 bindsym $mod+Shift+underscore move workspace 11: vm
 
 # reload the configuration file
