@@ -4,8 +4,8 @@ urxvt*underlineColor: yellow
 urxvt*visualBell: false
 urxvt*loginShell: true
 urxvt*saveLines: 1000
-urxvt*font: fixed,xft:Liberation Mono-8:antialias=true
-urxvt*boldFont: fixed,xft:Liberation Mono-8:antialias=true
+urxvt*font: fixed,xft:Liberation Mono-7:antialias=true
+urxvt*boldFont: fixed,xft:Liberation Mono-7:antialias=true
 urxvt*internalBorder: 0
 urxvt*externalBorder: 0
 urxvt*scrollstyle: plain
@@ -20,6 +20,9 @@ urxvt*cursorColor: #d1edff
 urxvt*color4: #0072ff
 urxvt*color12: #1082ff
 urxvt*modifier: mod4
+urxvt*perl-ext-common: default,matcher
+urxvt*urlLauncher: /usr/bin/chromium
+urxvt*matcher.button: 1
 Xft.dpi: 96.0
 *multiClickTime: 400
 XTerm*visualBell: False
