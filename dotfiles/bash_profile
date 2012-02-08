@@ -4,41 +4,13 @@
 export ANT_OPTS="-Xms512M -Xmx1024M -XX:MaxPermSize=1024M"
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export JAVA_COMPILER=jitc
-export JAVA_HOME=/usr/lib/jvm/java-6-sun
+export JAVA_HOME=/opt/java
 export JDK_HOME=$JAVA_HOME
-export M2_HOME=$HOME/opt/maven
-export M2_REPO=$HOME/.m2/repository
-export NB_HOME=$HOME/opt/netbeans
-export HADOOP_HOME=$HOME/opt/hadoop
-export HIVE_HOME=$HOME/opt/hive
-
-###############################################################################
-# Scala
-###############################################################################
-export SCALA_HOME=$HOME/opt/scala
-export SBT_HOME=$HOME/opt/sbt
-
-###############################################################################
-# Clojure
-###############################################################################
-export CLOJURE_EXT=$HOME/opt/clojure:$HOME/opt/clojure-contrib/target
-
-###############################################################################
-# Ruby
-###############################################################################
-export RUBY_HOME=/usr
-export RUBYOPT=rubygems
-export GEM_HOME=/var/lib/gems/1.8
 
 ###############################################################################
 # Haskell
 ###############################################################################
 export GHCRTS="-K512M"
-
-###############################################################################
-# Android
-###############################################################################
-ANDROID_HOME=$HOME/opt/android-sdk
 
 ###############################################################################
 # Debian package maintenance
@@ -53,7 +25,6 @@ export DEBFULLNAME="Min Huang"
 export GIT_EDITOR=vi
 export SVN_EDITOR=vi
 export EDITOR=vi
-export WINE_PREFIX=$HOME/.wine
 export MAILCHECK=NO
 
 ###############################################################################
@@ -62,16 +33,13 @@ export MAILCHECK=NO
 export PATH=$HOME/bin:\
 $JAVA_HOME/bin:\
 $M2_HOME/bin:\
-$GEM_HOME/bin:\
-$HADOOP_HOME/bin:\
-$HIVE_HOME/bin:\
-$ANDROID_HOME/tools:\
-$ANDROID_HOME/platform-tools:\
-$SCALA_HOME/bin:\
-/sbin:\
 /usr/local/bin:\
 /usr/bin:\
-/bin
+/bin:\
+/usr/local/sbin:\
+/usr/sbin:\
+/sbin:\
+/usr/bin/core_perl
 
 source $HOME/.bash_aliases
 source $HOME/.bash_functions
