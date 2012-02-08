@@ -21,9 +21,13 @@ xinput set-int-prop 'TPPS/2 IBM TrackPoint' 'Evdev Wheel Emulation Timeout' 8 20
 # Enable horizontal scrolling for trackpoint
 xinput set-int-prop 'TPPS/2 IBM TrackPoint' 'Evdev Wheel Emulation Axes' 8 6 7 4 5
 
+# Start Thinkpad OSD daemon
+if [ -x /usr/bin/tpb ] &&  [ -w /dev/nvram ] && [ -r /dev/nvram ]; then
+  /usr/bin/tpb -d
+fi
+
 urxvtd -q -o -f
 xscreensaver -nosplash &
-tpb -d
 ssh-agent | sed -e '3d' > ~/.ssh/agent
 
 exec /usr/bin/i3
