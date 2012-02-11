@@ -21,6 +21,12 @@ xinput set-int-prop 'TPPS/2 IBM TrackPoint' 'Evdev Wheel Emulation Timeout' 8 20
 # Enable horizontal scrolling for trackpoint
 xinput set-int-prop 'TPPS/2 IBM TrackPoint' 'Evdev Wheel Emulation Axes' 8 6 7 4 5
 
+# Enable IBus for Chinese input
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+GTK2_RC_FILES=/home/minhuang/.ibus-gtkrc-2.0 ibus-daemon --xim -d
+
 # Start Thinkpad OSD daemon
 if [ -x /usr/bin/tpb ] &&  [ -w /dev/nvram ] && [ -r /dev/nvram ]; then
   /usr/bin/tpb -d
