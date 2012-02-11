@@ -28,9 +28,8 @@ assign [class="VirtualBox"] 11: vm
 for_window [class="Avidemux2_gtk"] floating enable
 for_window [class="chromium"] layout stacking
 for_window [class="jetbrains-idea"] layout stacking
-for_window [class="Mplayer"] floating enable
-for_window [class="mplayer"] floating enable
 for_window [class="VirtualBox"] layout stacking
+for_window [class="MPlayer"] floating enable
 
 # color classes         border  back    text
 client.focused          #005577 #005577 #a0ff00
