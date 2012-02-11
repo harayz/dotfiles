@@ -135,6 +135,11 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# make numpad into volume controls
+bindcode 82 exec amixer -c 0 set Master 2dB- unmute
+bindcode 86 exec amixer -c 0 set Master 2dB+ unmute
+bindcode 104 exec amixer sset Master toggle
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
