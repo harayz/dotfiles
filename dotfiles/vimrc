@@ -5,6 +5,7 @@ set termencoding=utf-8
 set autoindent
 set background=dark
 set backspace=indent,eol,start
+set colorcolumn=
 set complete=.,w,b,t,i
 set completeopt=longest,menuone
 set expandtab
@@ -29,6 +30,7 @@ set nolist
 set novisualbell
 set number
 set pastetoggle=<F1>
+set relativenumber
 set ruler
 set selection=inclusive
 set selectmode=mouse
@@ -43,6 +45,8 @@ set softtabstop=2
 set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 set tabstop=2
 set ttyfast
+set undofile
+set undodir=/tmp
 set wildmenu
 set wildchar=<tab>
 set wildignore=*.class,*.o,*.obj,*.bak,*.exe,*.jpg,*.png,*.gif,*.jar,*/.git/*,*/.hg/*,*/.svn/*
@@ -60,17 +64,23 @@ syntax on
 filetype plugin indent on
 colorscheme jellybeans
 
+" Functions
+function! ToggleColorColumn()
+  if empty(&colorcolumn)
+    if empty(&textwidth)
+      setlocal colorcolumn=80
+    else
+      setlocal colorcolumn=+1
+    endif
+  else
+    echo "colorcolumn="
+    setlocal colorcolumn=
+  endif
+endfunction
+
 " Mappings
 "   Toggle highlighting of really long lines
-map <silent> <F11>
-      \ :if exists('w:long_line_match') <Bar>
-      \   silent! call matchdelete(w:long_line_match) <Bar>
-      \   unlet w:long_line_match <Bar>
-      \ elseif &textwidth > 0 <Bar>
-      \   let w:long_line_match = matchadd('OverColLimit', '\%>'.&tw.'v.\+', -1) <Bar>
-      \ else <Bar>
-      \   let w:long_line_match = matchadd('OverColLimit', '\%>80v.\+', -1) <Bar>
-      \ endif<CR>
+map <silent> <F11> :call ToggleColorColumn()<CR>
 "   Remove all trailing whitespace
 map <silent> <F12> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
@@ -120,7 +130,7 @@ imap <expr> <m-,> pumvisible() ? '<c-n>' :
 imap <nul> <c-x><c-u><c-p>
 
 " Highlight really long lines
-highlight OverColLimit ctermbg=darkblue
+highlight ColorColumn ctermbg=darkblue
 
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
