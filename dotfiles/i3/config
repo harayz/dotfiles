@@ -30,6 +30,7 @@ for_window [class="chromium"] layout stacking
 for_window [class="jetbrains-idea"] layout stacking
 for_window [class="VirtualBox"] layout stacking
 for_window [class="MPlayer"] floating enable
+for_window [class="Tilda"] floating enable
 
 # color classes         border  back    text
 client.focused          #005577 #005577 #a0ff00
