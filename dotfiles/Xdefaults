@@ -3,6 +3,7 @@ urxvt*background: black
 urxvt*foreground: white
 urxvt*underlineColor: yellow
 urxvt*visualBell: false
+urxvt*urgentOnBell: true
 urxvt*loginShell: true
 urxvt*saveLines: 1000
 urxvt*font: fixed,xft:Liberation Mono-7:antialias=true
@@ -26,7 +27,8 @@ urxvt*urlLauncher: /usr/bin/chromium
 urxvt*matcher.button: 1
 urxvt*inputMethod: ibus
 urxvt*preeditType: OnTheSpot,None
-Xft.dpi: 96.0
-*multiClickTime: 400
 XTerm*visualBell: False
 XTerm*audibleBell: False
+XTerm*bellIsUrgent: True
+Xft.dpi: 96.0
+*multiClickTime: 400
