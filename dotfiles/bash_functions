@@ -18,7 +18,6 @@ function git-cd {
 # Decompress a file, so I don't have to keep in mind the specific flags I have
 # to pass in for each program that does decompression.  This will blow away
 # the original compressed file if the decompression succeeds, so be warned.
->>>>>>> origin/master
 function decompress {
   if [[ "$1" = *.tar.bz2 ]]; then
     tar xvfj "$1" && rm "$1"
