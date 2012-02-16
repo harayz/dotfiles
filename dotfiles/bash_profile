@@ -44,7 +44,6 @@ eval $(dircolors -b $HOME/.dircolors)
 promptcolors
 
 # Hostname and path appears in terminal title
->>>>>>> origin/master
 case "$TERM" in
   xterm*|rxvt*)
     PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
