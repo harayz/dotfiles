@@ -22,6 +22,7 @@ assign [class="Thunar"] 8: file
 assign [class="Avidemux2_gtk"] 8: file
 assign [class="chromium"] 9: www
 assign [class="Thunderbird"] 10: mail
+assign [class="rdesktop"] 11: vm
 assign [class="VirtualBox"] 11: vm
 
 # per window commands
