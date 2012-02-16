@@ -1,7 +1,6 @@
 # Java
 export ANT_OPTS="-Xms512M -Xmx1024M -XX:MaxPermSize=1024M"
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
-export JAVA_COMPILER=jitc
 export JAVA_HOME=/opt/java
 export JDK_HOME=$JAVA_HOME
 
@@ -39,10 +38,13 @@ fi
 if [ -e $HOME/.ssh/agent ]; then
   source $HOME/.ssh/agent
 fi
+
+# Colorize prompt and directories
 eval $(dircolors -b $HOME/.dircolors)
 promptcolors
 
 # Hostname and path appears in terminal title
+>>>>>>> origin/master
 case "$TERM" in
   xterm*|rxvt*)
     PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
