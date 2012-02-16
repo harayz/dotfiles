@@ -1,6 +1,0 @@
-#!/bin/bash
-FILE="$1"
-tar xvfz "$FILE"
-cd ${FILE%%.*}
-makepkg -s
-sudo pacman -U *.tar.xz
