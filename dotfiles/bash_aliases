@@ -28,3 +28,6 @@ alias mtop='ps auxf | sort -nr -k 4 | head -10'
 
 # On Arch, vi is actually vi; most of the time I actually want vim.
 alias vi='vim'
+
+# Instruct Bash to check if the command following sudo is also an alias
+alias sudo='sudo '
