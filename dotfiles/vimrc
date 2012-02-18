@@ -63,7 +63,7 @@ call pathogen#infect()
 
 syntax on
 filetype plugin indent on
-colorscheme gardener
+colorscheme jellybeans
 
 " Functions
 function! ToggleColorColumn()
