@@ -23,6 +23,7 @@ set laststatus=2
 set lazyredraw
 set listchars=tab:│\ ,trail:·
 set modelines=0
+set mouse=
 set nobackup
 set noerrorbells
 set nofoldenable
@@ -33,7 +34,6 @@ set pastetoggle=<F1>
 set relativenumber
 set ruler
 set selection=inclusive
-set selectmode=mouse
 set shiftwidth=2
 set showcmd
 set showmode
