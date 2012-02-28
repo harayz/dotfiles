@@ -28,7 +28,7 @@ $M2_HOME/bin:\
 /usr/local/sbin:\
 /usr/sbin:\
 /sbin:\
-/usr/bin/core_perl
+$HOME/.gem/ruby/1.9.1/bin
 
 source $HOME/.bash_aliases
 source $HOME/.bash_functions
