@@ -18,6 +18,7 @@ workspace_auto_back_and_forth no
 
 # workspace assignments; use xprop to find out WM_CLASS
 assign [class="jetbrains-idea"] 7: ide
+assign [class="Eclipse"] 7: ide
 assign [class="Thunar"] 8: file
 assign [class="Avidemux2_gtk"] 8: file
 assign [class="chromium"] 9: www
@@ -26,12 +27,13 @@ assign [class="rdesktop"] 11: vm
 assign [class="VirtualBox"] 11: vm
 
 # per window commands
+for_window [class="jetbrains-idea"] layout stacking
+for_window [class="Eclipse"] layout stacking
 for_window [class="Avidemux2_gtk"] floating enable
 for_window [class="chromium"] layout stacking
-for_window [class="jetbrains-idea"] layout stacking
-for_window [class="VirtualBox"] layout stacking
 for_window [class="MPlayer"] floating enable
 for_window [class="Tilda"] floating enable
+for_window [class="VirtualBox"] layout stacking
 
 # color classes         border  back    text
 client.focused          #005577 #005577 #a0ff00
