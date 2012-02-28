@@ -3,7 +3,7 @@ export ANT_OPTS="-Xms512M -Xmx1024M -XX:MaxPermSize=1024M"
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export JAVA_HOME=/opt/java
 export JDK_HOME=$JAVA_HOME
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
+export _JAVA_OPTIONS="-J-Dawt.useSystemAAFontSettings=on -J-Dswing.aatext=true"
 
 # Haskell
 export GHCRTS="-K512M"
