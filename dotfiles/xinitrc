@@ -27,12 +27,9 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 GTK2_RC_FILES=/home/minhuang/.ibus-gtkrc-2.0 ibus-daemon --xim -d
 
-# Start Thinkpad OSD daemon
-if [ -x /usr/bin/tpb ] &&  [ -w /dev/nvram ] && [ -r /dev/nvram ]; then
-  /usr/bin/tpb -d
-fi
-
+# Start urxvt daemon
 urxvtd -q -o -f
+
 xscreensaver -nosplash &
 ssh-agent | sed -e '3d' > ~/.ssh/agent
 
