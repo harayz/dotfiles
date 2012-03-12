@@ -1,0 +1,2 @@
+#!/bin/sh
+qemu-kvm -enable-kvm -hda $HOME/data/qemu/winxp-overlay.img -m 512 -usbdevice tablet -vga std
