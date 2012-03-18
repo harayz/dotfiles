@@ -15,6 +15,8 @@ hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)
 
 setenv SSH_AUTH_SOCK $HOME/.ssh/screen_agent
 
-screen -t ruby    0 sh -c "irb; bash -l"
-screen -t bash    1 bash -l
+screen -t irb    0 sh -c "irb; bash -l"
+screen -t rkt    1 sh -c "rlwrap racket; bash -l"
+screen -t www    2 sh -c "bash -l"
+screen -t bash   3 sh -c "bash -l"
 screen -t remote  9 ssh-agent ssh-agent -a $SSH_AUTH_SOCK $SHELL
