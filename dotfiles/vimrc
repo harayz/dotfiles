@@ -56,8 +56,6 @@ let g:Tb_MaxSize=0
 let g:Tb_MoreThanOne=2
 let g:ctrlp_map='<c-o>'
 
-call pathogen#infect()
-
 syntax on
 filetype plugin indent on
 colorscheme jellybeans
@@ -129,7 +127,3 @@ highlight OverColLimit ctermbg=darkblue
 
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
-
-" Project specific settings
-set secure
-au BufEnter,BufReadPost * silent! source ./project.vim

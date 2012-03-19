@@ -20,9 +20,6 @@ alias mkdir='mkdir -p'
 # Make it easier to pushd
 alias pd='pushd'
 
-# Use rsync for scp in case i want to resume later
-alias scpr='rsync --partial --progress --rsh=ssh'
-
 # Show top 10 most memory intensive programs
 alias mtop='ps auxf | sort -nr -k 4 | head -10'
 
