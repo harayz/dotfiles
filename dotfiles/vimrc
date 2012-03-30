@@ -51,14 +51,14 @@ set undofile
 set undodir=/tmp
 set wildmenu
 set wildchar=<tab>
-set wildignore=*.class,*.o,*.obj,*.bak,*.exe,*.jpg,*.png,*.gif,*.jar,*/.git/*,*/.hg/*,*/.svn/*
+set wildignore=*.class,*.o,*.obj,*.bak,*.exe,*.jpg,*.png,*.gif,*.jar,*/.git/*,*/.hg/*,*/.svn/*,*/target/*
 set wildmode=list:longest
 
 let mapleader=","
 let g:Tb_SplitBelow=1
 let g:Tb_MaxSize=0
 let g:Tb_MoreThanOne=2
-let g:ctrlp_map='<c-o>'
+let g:ctrlp_map='<c-t>'
 
 call pathogen#infect()
 
