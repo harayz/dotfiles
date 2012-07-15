@@ -82,9 +82,9 @@ endfunction
 
 " Mappings
 "   Toggle highlighting of really long lines
-map <silent> <F11> :call ToggleColorColumn()<cr>
+map <silent> <F5> :call ToggleColorColumn()<cr>
 "   Remove all trailing whitespace
-map <silent> <F12> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
+map <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
 
 " Normal mode mappings (same as nnoremap)
 nmap ; :

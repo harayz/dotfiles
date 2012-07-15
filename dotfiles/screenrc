@@ -3,7 +3,6 @@ startup_message off
 vbell off
 vbell_msg ^G
 deflogin on
-termcapinfo xterm* ti@:te@
 term screen-256color
 terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 escape ^Oo                        # Use ctrl+o to issue commands to screen
