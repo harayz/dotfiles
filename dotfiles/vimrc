@@ -21,13 +21,13 @@ set indentexpr=
 set infercase
 set laststatus=2
 set lazyredraw
+set list
 set listchars=tab:│\ ,trail:·
 set modelines=0
 set mouse=
 set nobackup
 set noerrorbells
 set nofoldenable
-set nolist
 set novisualbell
 set number
 set pastetoggle=<F1>
