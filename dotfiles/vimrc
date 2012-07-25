@@ -85,6 +85,8 @@ endfunction
 map <silent> <F5> :call ToggleColorColumn()<cr>
 "   Remove all trailing whitespace
 map <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
+"   Open/close the taglist
+map <silent> <F7> :TlistToggle<cr>
 
 " Normal mode mappings (same as nnoremap)
 nmap ; :
