@@ -4,6 +4,12 @@ autocmd BufNewFile,BufRead .bash_profile,bash_profile setf bash
 autocmd BufNewFile,BufRead .bash_functions,bash_functions setf bash
 autocmd BufNewFile,BufRead .bash_aliases,bash_aliases setf bash
 
+" clojure
+autocmd BufNewFile,BufRead *.clj setf clojure
+
+" hive
+autocmd BufNewFile,BufRead *.q setf hive
+
 " html
 autocmd BufNewFile,BufRead *.ejs setf html
 autocmd BufNewFile,BufRead *.sst setf html
