@@ -10,7 +10,7 @@ set complete=.,w,b,t,i
 set completeopt=longest,menuone
 set expandtab
 set fileformat=unix
-set fillchars=stl:_,stlnc:-,vert:\|,fold:\ ,diff:-
+set fillchars=stl:\ ,stlnc:\
 set gdefault
 set guioptions+=c
 set hidden
@@ -111,8 +111,9 @@ nmap <leader>i :set list!<cr>
 nmap <leader>j <c-w>j
 nmap <leader>k <c-w>k
 nmap <leader>l <c-w>l
-nmap <leader>n :bnext<cr>
-nmap <leader>p :bprev<cr>
+nmap <leader>pp :r!xsel -p<cr>
+nmap <leader>ps :r!xsel -s<cr>
+nmap <leader>pb :r!xsel -b<cr>
 nmap <leader>r :res<cr>
 " nmap <leader>s (used by slime.vim)
 nmap <silent> <leader>t :!ctags -R * &<cr><cr>
@@ -121,6 +122,7 @@ nmap <leader>v V`]
 " nmap <leader>w (used by camelcasemotion)
 nmap <leader>q :q!<cr>
 " nmap <leader>x (used by slime.vim)
+nmap <silent> <leader>yy :w !xsel -i -b<cr><cr>
 nmap <leader>= <c-w>=<cr>
 nmap <leader><space> :set hlsearch!<cr>
 

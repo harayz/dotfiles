@@ -7,33 +7,46 @@ base_dir = File.expand_path(File.join(File.dirname(homekeeper), '..'))
 def print_usage
   puts 'Usage: homekeeper [command]'
   puts 'Examples:'
-  puts '  homekeeper update'
-  puts '  homekeeper pick'
+  puts '  homekeeper sync'
+  puts '  homekeeper save'
   puts '  homekeeper link'
 end
 
 def sh(cmd)
   puts cmd
-  system(cmd)
+  %x[#{cmd}]
 end
 
-print_usage if ARGV.empty?
+def branch
+  sh('git status').split(/\n/)[0].
+      split(/# On branch /)[1]
+end
+
+def commit
+  sh('git show HEAD').split(/\n/)[0].
+      split(/ /)[1]
+end
+
+if ARGV.empty?
+  print_usage
+  exit 0
+end
 
 case ARGV[0]
-when 'update'
-  branch = %x[git branch].split(/ /)[1]
-  %x[git fetch]
-  %x[git checkout master]
-  %x[git merge origin/master]
-  %x[git checkout #{branch}]
-  %x[git merge master]
-when 'pick'
-  branch = %x[git branch].split(/\n/)[0].split(/ /)[1]
-  commit = %x[git show HEAD].split(/\n/)[0].split(/ /)[1]
-  %x[git checkout master]
-  %x[git cherry-pick #{commit}]
-  %x[git checkout #{branch}]
-  %x[git merge master]
+when 'sync'
+  b = branch
+  sh 'git fetch'
+  sh 'git checkout master'
+  sh 'git merge origin/master'
+  sh "git checkout #{b}"
+  sh 'git merge master'
+when 'save'
+  b = branch
+  c = commit
+  sh 'git checkout master'
+  sh "git cherry-pick #{c}"
+  sh "git checkout #{b}"
+  sh 'git merge master'
 when 'link'
   Dir.chdir base_dir do
     FileUtils.rm_r 'tmp' if File.exists? 'tmp'
