@@ -32,7 +32,6 @@ set nofoldenable
 set novisualbell
 set number
 set pastetoggle=<F1>
-set relativenumber
 set ruler
 set selection=inclusive
 set shiftwidth=2
