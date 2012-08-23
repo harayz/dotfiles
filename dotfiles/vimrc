@@ -8,6 +8,7 @@ set backspace=indent,eol,start
 set colorcolumn=
 set complete=.,w,b,t,i
 set completeopt=longest,menuone
+set copyindent
 set expandtab
 set fileformat=unix
 set fillchars=stl:\ ,stlnc:\ 
@@ -29,12 +30,14 @@ set mouse=
 set nobackup
 set noerrorbells
 set nofoldenable
+set noswapfile
 set novisualbell
 set number
 set pastetoggle=<F1>
 set ruler
 set selection=inclusive
 set shiftwidth=2
+set shiftround
 set showcmd
 set showmode
 set showmatch
@@ -45,6 +48,7 @@ set softtabstop=2
 set t_Co=256
 set t_vb=
 set tabstop=2
+set title
 set ttyfast
 set undofile
 set undodir=/tmp
