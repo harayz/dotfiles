@@ -9,7 +9,6 @@ set colorcolumn=
 set complete=.,w,b,t,i
 set completeopt=longest,menuone
 set copyindent
-set cursorline
 set expandtab
 set fileformat=unix
 set fillchars=stl:\ ,stlnc:\ 
@@ -106,6 +105,9 @@ map <silent> <F5> :call ToggleColorColumn()<cr>
 map <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
 "   Open/close the taglist
 map <silent> <F7> :TlistToggle<cr>
+
+" Command mode mappings (same as cnoremap)
+cmap w!! w !sudo tee % >/dev/null
 
 " Normal mode mappings (same as nnoremap)
 nmap ; :
