@@ -28,6 +28,9 @@ export QT_IM_MODULE=ibus
 GTK2_RC_FILES=/home/minhuang/.ibus-gtkrc-2.0 ibus-daemon --xim -d
 
 xscreensaver -nosplash &
+autocutsel -f
+autocutsel -f -selection PRIMARY
+autocutsel -f -selection CLIPBOARD
 ssh-agent | sed -e '3d' > ~/.ssh/agent
 
 exec /usr/bin/i3
