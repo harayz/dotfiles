@@ -113,6 +113,7 @@ nmap j gj
 nmap k gk
 nmap J <nop>
 nmap K <nop>
+nmap Y y$
 nmap <tab> %
 nmap <c-g> <c-]>
 nmap <c-h> <c-w>h
