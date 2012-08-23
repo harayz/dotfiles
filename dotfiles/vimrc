@@ -9,6 +9,7 @@ set colorcolumn=
 set complete=.,w,b,t,i
 set completeopt=longest,menuone
 set copyindent
+set cursorline
 set expandtab
 set fileformat=unix
 set fillchars=stl:\ ,stlnc:\ 
