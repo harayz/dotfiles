@@ -24,7 +24,8 @@ $M2_HOME/bin:\
 /usr/local/sbin:\
 /usr/sbin:\
 /sbin:\
-$HOME/.gem/ruby/1.9.1/bin
+$HOME/.gem/ruby/1.9.1/bin:\
+$HOME/opt/jasypt/bin
 
 source $HOME/.bash_aliases
 source $HOME/.bash_functions
