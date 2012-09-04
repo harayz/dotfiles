@@ -12,6 +12,7 @@ f7  = show-menu
 f8  = context-menu
 j   = move-down
 k   = move-up
+f9  =
 
 [GntWidget::binding]
 c-c = window-close
@@ -20,6 +21,7 @@ f8  = context-menu
 [GntWindow::binding]
 c-x = window-close
 f7  = show-menu
+f9  =
 
 [GntWM::binding]
 c-a = action-list
@@ -27,3 +29,4 @@ c-x = window-close
 c-n = window-next
 c-p = window-prev
 c-w = window-list
+f9  =
