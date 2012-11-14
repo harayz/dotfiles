@@ -1,2 +1,0 @@
-#!/bin/sh
-qemu-kvm -enable-kvm -hda $1 -m 512 -usbdevice tablet -vga std -smb qemu -full-screen
