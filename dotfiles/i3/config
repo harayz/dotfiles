@@ -115,7 +115,7 @@ bindsym $mod+6 workspace 6: doc
 bindsym $mod+7 workspace 7: ide
 bindsym $mod+8 workspace 8: file
 bindsym $mod+9 workspace 9: www
-bindsym $mod+0 workspace 10: mail
+bindsym $mod+0 workspace 10: chat
 bindsym $mod+minus workspace 11: vm
 
 # move focused container to workspace
@@ -128,7 +128,7 @@ bindsym $mod+Shift+asciicircum move workspace 6: doc
 bindsym $mod+Shift+ampersand move workspace 7: ide
 bindsym $mod+Shift+asterisk move workspace 8: file
 bindsym $mod+Shift+parenleft move workspace 9: www
-bindsym $mod+Shift+parenright move workspace 10: mail
+bindsym $mod+Shift+parenright move workspace 10: chat
 bindsym $mod+Shift+underscore move workspace 11: vm
 
 # reload the configuration file
