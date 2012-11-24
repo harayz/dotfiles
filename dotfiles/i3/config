@@ -39,6 +39,7 @@ for_window [class="Avidemux2_gtk"] floating enable
 for_window [class="chromium"] layout stacking
 for_window [class="Chromium"] layout stacking
 for_window [class="feh"] floating enable
+for_window [title="File Operation Progress"] floating enable
 for_window [class="google-chrome"] layout stacking
 for_window [class="Google-chrome"] layout stacking
 for_window [class="MPlayer"] floating enable
