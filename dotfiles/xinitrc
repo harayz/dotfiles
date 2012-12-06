@@ -34,4 +34,4 @@ xscreensaver -nosplash &
 xrdb -merge ~/.Xresources
 ssh-agent | sed -e '3d' > ~/.ssh/agent
 
-exec /usr/bin/i3
+exec dbus-launch /usr/bin/i3
