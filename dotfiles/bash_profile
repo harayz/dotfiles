@@ -15,33 +15,22 @@ export EDITOR=vim
 export MAILCHECK=NO
 
 # Bash
-export PATH=$HOME/bin:\
-$JAVA_HOME/bin:\
-$M2_HOME/bin:\
-/usr/local/bin:\
-/usr/bin:\
-/bin:\
-/usr/local/sbin:\
-/usr/sbin:\
-/sbin:\
-$HOME/.gem/ruby/1.9.1/bin:\
-$HOME/opt/jasypt/bin
-
 source $HOME/.bash_aliases
 source $HOME/.bash_functions
 if [ -e $HOME/.bash_local ]; then
   source $HOME/.bash_local
 fi
+add-path $JAVA_HOME/bin
+add-path $HOME/.gem/ruby/1.9.1/bin:
+add-path $HOME/opt/jasypt/bin
 
 # Setup keychain
 if [ -e $HOME/.ssh/id_dsa ]; then
   keychain --quiet $HOME/.ssh/id_dsa
 fi
-
 if [ -e $HOME/.ssh/id_rsa ]; then
   keychain --quiet $HOME/.ssh/id_rsa
 fi
-
 source $HOME/.keychain/$HOSTNAME-sh
 
 # Colorize prompt and directories
