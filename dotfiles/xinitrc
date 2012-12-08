@@ -32,6 +32,5 @@ xscreensaver -nosplash &
 #autocutsel -fork -selection PRIMARY &
 #autocutsel -fork -selection CLIPBOARD &
 xrdb -merge ~/.Xresources
-ssh-agent | sed -e '3d' > ~/.ssh/agent
 
 exec dbus-launch /usr/bin/i3

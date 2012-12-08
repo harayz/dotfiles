@@ -32,9 +32,17 @@ source $HOME/.bash_functions
 if [ -e $HOME/.bash_local ]; then
   source $HOME/.bash_local
 fi
-if [ -e $HOME/.ssh/agent ]; then
-  source $HOME/.ssh/agent
+
+# Setup keychain
+if [ -e $HOME/.ssh/id_dsa ]; then
+  keychain --quiet $HOME/.ssh/id_dsa
 fi
+
+if [ -e $HOME/.ssh/id_rsa ]; then
+  keychain --quiet $HOME/.ssh/id_rsa
+fi
+
+source $HOME/.keychain/$HOSTNAME-sh
 
 # Colorize prompt and directories
 eval $(dircolors -b $HOME/.dircolors)
