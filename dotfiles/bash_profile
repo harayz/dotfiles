@@ -5,8 +5,8 @@ export EDITOR=vim
 # Bash
 source $HOME/.bash_aliases
 source $HOME/.bash_functions
-add-path $HOME/bin
 add-path /sbin
+add-path $HOME/bin
 
 # Setup keychain
 if [ -e $HOME/.ssh/id_dsa ]; then
