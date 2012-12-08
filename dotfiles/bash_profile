@@ -9,11 +9,11 @@ source $HOME/.bash_functions
 
 # Setup keychain
 if [ -e $HOME/.ssh/id_dsa ]; then
-  keychain $HOME/.ssh/id_dsa
+  keychain --quiet $HOME/.ssh/id_dsa
 fi
 
 if [ -e $HOME/.ssh/id_rsa ]; then
-  keychain $HOME/.ssh/id_rsa
+  keychain --quiet $HOME/.ssh/id_rsa
 fi
 
 source $HOME/.keychain/$HOSTNAME-sh
