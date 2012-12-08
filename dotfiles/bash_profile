@@ -6,12 +6,17 @@ export EDITOR=vim
 export PATH=$HOME/bin:/sbin:$PATH
 source $HOME/.bash_aliases
 source $HOME/.bash_functions
-if [ -e $HOME/.bash_local ]; then
-  source $HOME/.bash_local
+
+# Setup keychain
+if [ -e $HOME/.ssh/id_dsa ]; then
+  keychain $HOME/.ssh/id_dsa
 fi
-if [ -e $HOME/.ssh/agent ]; then
-  source $HOME/.ssh/agent
+
+if [ -e $HOME/.ssh/id_rsa ]; then
+  keychain $HOME/.ssh/id_rsa
 fi
+
+source $HOME/.keychain/$HOSTNAME-sh
 
 # Colorize prompt and directories
 eval $(dircolors -b $HOME/.dircolors)
