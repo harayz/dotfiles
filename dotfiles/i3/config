@@ -45,6 +45,7 @@ for_window [class="Google-chrome"] layout stacking
 for_window [class="MPlayer"] floating enable
 for_window [class="mplayer2"] floating enable
 for_window [class="VirtualBox"] layout stacking
+for_window [class="xmms"] floating enable
 
 # color classes         border  back    text
 client.focused          #005577 #005577 #a0ff00
