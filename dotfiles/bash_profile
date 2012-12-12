@@ -3,19 +3,18 @@ export SVN_EDITOR=vim
 export EDITOR=vim
 
 # Bash
-export PATH=$HOME/bin:/sbin:$PATH
 source $HOME/.bash_aliases
 source $HOME/.bash_functions
+addpath $HOME/bin
+addpath /sbin
 
 # Setup keychain
 if [ -e $HOME/.ssh/id_dsa ]; then
   keychain --quiet $HOME/.ssh/id_dsa
 fi
-
 if [ -e $HOME/.ssh/id_rsa ]; then
   keychain --quiet $HOME/.ssh/id_rsa
 fi
-
 source $HOME/.keychain/$HOSTNAME-sh
 
 # Colorize prompt and directories
