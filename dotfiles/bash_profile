@@ -20,9 +20,9 @@ source $HOME/.bash_functions
 if [ -e $HOME/.bash_local ]; then
   source $HOME/.bash_local
 fi
-add-path $JAVA_HOME/bin
-add-path $HOME/.gem/ruby/1.9.1/bin
-add-path $HOME/opt/jasypt/bin
+addpath $JAVA_HOME/bin
+addpath $HOME/.gem/ruby/1.9.1/bin
+addpath $HOME/opt/jasypt/bin
 
 # Setup keychain
 if [ -e $HOME/.ssh/id_dsa ]; then
