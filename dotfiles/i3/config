@@ -23,12 +23,10 @@ assign [class="Eclipse"] 7: ide
 assign [class="java-lang-Thread"] 7: ide
 assign [class="sun-awt-X11-XFramePeer"] 7: ide
 assign [class="Thunar"] 8: file
-assign [class="Avidemux2_gtk"] 8: file
 assign [class="chromium"] 9: www
 assign [class="Chromium"] 9: www
 assign [class="google-chrome"] 9: www
 assign [class="Google-chrome"] 9: www
-assign [class="Thunderbird"] 10: mail
 assign [class="rdesktop"] 11: vm
 assign [class="VirtualBox"] 11: vm
 
