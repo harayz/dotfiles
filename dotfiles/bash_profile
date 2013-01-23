@@ -32,6 +32,9 @@ fi
 if [ -e $HOME/.ssh/id_rsa ]; then
   keychain --quiet $HOME/.ssh/id_rsa
 fi
+if [ -e $HOME/.leiningen/id_rsa ]; then
+  keychain --quiet $HOME/.leiningen/id_rsa
+fi
 source $HOME/.keychain/$HOSTNAME-sh
 
 # Colorize prompt and directories
