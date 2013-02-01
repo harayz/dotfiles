@@ -5,7 +5,7 @@ set termencoding=utf-8
 set autoindent
 set background=dark
 set backspace=indent,eol,start
-set colorcolumn=
+" set colorcolumn=
 set complete=.,w,b,t,i
 set completeopt=longest,menuone
 set copyindent
@@ -51,8 +51,8 @@ set tabstop=2
 set textwidth=80
 set title
 set ttyfast
-set undofile
-set undodir=/tmp
+" set undofile
+" set undodir=/tmp
 set wildmenu
 set wildchar=<tab>
 set wildignore=*.jpg,*.png,*.gif,*.swp,*.swo,*~
