@@ -22,7 +22,6 @@ if [ -e $HOME/.bash_local ]; then
 fi
 addpath $JAVA_HOME/bin
 addpath $HOME/.gem/ruby/2.0.0/bin
-addpath $HOME/opt/jasypt/bin
 addpath $HOME/bin
 
 # Setup keychain
