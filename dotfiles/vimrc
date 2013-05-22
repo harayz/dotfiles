@@ -1,3 +1,24 @@
+" How to use retiman's flavor of vim with plugins 'o plenty
+" =========================================================
+" CamelCaseMotion
+"   <leader>w moves forward one word
+"   <leader>b moves backwards one word
+" ctrlp
+"   <c-t> opens file list
+"   <F5> refreshes an open file list
+" taglist
+"   <F4> opens the taglist browser
+" vim-fugitive
+"   <leader>gs opens up the git status window
+"   <leader>gc opens up the git commit window from the git status window
+"   :wq writes the commit
+"   :bd deletes the buffer
+" vim-reporoot
+"   :RepoRoot goes to the repository's root
+" vim-surround
+"   cs"' to change surrounding " to '
+"   ysiw] to surround text with [ and ]
+"   ds] delete surrounding [ and ]
 set nocompatible
 set clipboard=unnamed
 set fileencoding=utf-8
@@ -136,6 +157,10 @@ nmap <c-n> :bnext<cr>
 nmap <c-p> :bprev<cr>
 "    Open up a scratch buffer
 nmap <leader><tab> :Scratch<cr>
+"    Change directory to currently open file
+nmap <leader>cc :lcd %:p:h<cr>:pwd<cr>
+"    Change directory to repository root
+nmap <leader>cr :RepoRoot<cr>:pwd<cr>
 "    Delete the currently open buffer
 nmap <leader>d :bd<cr>:syn on<cr>
 "    Working with fugitive.vim:
