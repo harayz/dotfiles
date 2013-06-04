@@ -48,7 +48,7 @@ function decompress {
 }
 
 # Colorize man pages.
-man() {
+function man {
   env \
     LESS_TERMCAP_mb=$(printf "\e[1;31m") \
     LESS_TERMCAP_md=$(printf "\e[1;31m") \
@@ -102,6 +102,11 @@ function repoparse {
 # based on language.
 function vimproject {
     cp $HOME/.vim/project/${1}/project.vim .
+}
+
+# Search your bash history for a command
+function h {
+  history | grep "$@"
 }
 
 # Colorize the Bash prompt the way I like it
