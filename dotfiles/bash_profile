@@ -13,9 +13,10 @@ export GIT_EDITOR=vim
 export SVN_EDITOR=vim
 export EDITOR=vim
 export MAILCHECK=NO
-export HISTCONTROL=erasedups:ignorespace
 
 # Bash
+export HISTCONTROL=erasedups:ignorespace
+export HISTIGNORE="ls:pwd:exit:mount:rm:screen:vi:cd"
 unset HISTSIZE
 unset HISTFILESIZE
 shopt -s histappend
