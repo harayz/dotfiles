@@ -1,7 +1,7 @@
 # Changes to the root directory of your git repository.  This must be a bash
 # function; it cannot be a script.  Making it a script will change your cwd
 # in the script, which will exit and accomplish nothing :)
-function gitcd {
+function reporoot {
   pushd .
   while [ ! -d .git ]; do
     cd ..
@@ -19,28 +19,47 @@ function gitcd {
 # to pass in for each program that does decompression.  This will blow away
 # the original compressed file if the decompression succeeds, so be warned.
 function decompress {
-  if [[ "$1" = *.tar.bz2 ]]; then
-    tar xvfj "$1" && rm "$1"
-  elif [[ "$1" = *.tar.gz ]]; then
-    tar xvfz "$1" && rm "$1"
-  else
-    case "${1##*.}" in
-      zip)
-        unzip "$1" && rm "$1";;
-      gz)
-        gunzip "$1" ;;
-      rar)
-        unrar x "$1" && rm "$1";;
-      7z)
-        7z x "$1" && rm "$1";;
+  for F in "$@"; do
+    case "$F" in
+      *.tar.bz2)
+        tar xvfj "$F" && rm "$F"
+        ;;
+      *.tar.gz)
+        tar xvfz "$F" && rm "$F"
+        ;;
+      *.7z)
+        7z x "$F" && rm "$F"
+        ;;
+      *.exe)
+        cabextract "$F"
+        ;;
+      *.gz)
+        gunzip "$F"
+        ;;
+      *.rar)
+        unrar x "$F" && rm "$F"
+        ;;
+      *.xz)
+        unxz "$F"
+        ;;
+      *.z01)
+        zip -s 0 "${F%.*}.zip" --out "${F%.*}-full.zip"
+        unzip "${F%.*}-full.zip"
+        ;;
+      *.zip)
+        unzip "$F" && rm "$F"
+        ;;
+      *.Z)
+        uncompress "$F"
+        ;;
       *)
         echo "Not a compressed file (that I know of)." ;;
     esac
-  fi
+  done
 }
 
 # Colorize man pages.
-man() {
+function man {
   env \
     LESS_TERMCAP_mb=$(printf "\e[1;31m") \
     LESS_TERMCAP_md=$(printf "\e[1;31m") \
@@ -94,6 +113,11 @@ function repoparse {
 # based on language.
 function vimproject {
     cp $HOME/.vim/project/${1}/project.vim .
+}
+
+# Search your bash history for a command
+function h {
+  history | grep "$@"
 }
 
 # Colorize the Bash prompt the way I like it

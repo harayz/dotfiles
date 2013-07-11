@@ -3,16 +3,14 @@ export GIT_EDITOR=vim
 export SVN_EDITOR=vim
 export EDITOR=vim
 export MAILCHECK=NO
-export HISTCONTROL=ignoreboth
 
 # Bash
+export HISTCONTROL=erasedups:ignorespace
+export HISTIGNORE="ls:pwd:exit:mount:rm:screen:vi:cd"
 unset HISTSIZE
 unset HISTFILESIZE
 shopt -s histappend
-source $HOME/.bash_aliases
-source $HOME/.bash_functions
-addpath $HOME/bin
-addpath /sbin
+shopt -s extglob
 
 # Setup keychain
 if [ -e $HOME/.ssh/id_dsa ]; then
@@ -21,7 +19,13 @@ fi
 if [ -e $HOME/.ssh/id_rsa ]; then
   keychain --quiet $HOME/.ssh/id_rsa
 fi
+
 source $HOME/.keychain/$HOSTNAME-sh
+source $HOME/.bash_functions
+source $HOME/.bash_aliases
+if [ -e $HOME/.bash_local ]; then source $HOME/.bash_local; fi
+addpath $HOME/bin
+addpath /sbin
 
 # Colorize prompt and directories
 eval $(dircolors -b $HOME/.dircolors)
