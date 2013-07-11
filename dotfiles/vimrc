@@ -85,11 +85,14 @@ set wildmode=list:longest
 set wrapmargin=0
 
 let mapleader=','
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:bufferline_echo=0
 let g:ctrlp_map='<c-t>'
-let g:ctrlp_working_path_mode='r'
-let g:Powerline_symbols='compatible'
-let g:ackprg='ack -H --nocolor --nogroup --column'
-let g:buftabs_only_basename=1
+let g:ctrlp_working_path_mode='rw'
+let g:ctrlp_by_filename=1
+let g:ctrlp_clear_cache_on_exit=0
+let g:signify_update_on_bufenter=1
 let g:quickfix_is_open=0
 
 call pathogen#infect()
@@ -129,8 +132,6 @@ map <silent> <F2> :call QuickfixToggle()<cr>
 map <silent> <F3> :call ToggleColorColumn()<cr>
 "   Open/close the taglist
 map <silent> <F4> :TlistToggle<cr>
-"   Remove all trailing whitespace
-map <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
 
 " Command mode mappings (same as cnoremap)
 "     Write to a read only file
@@ -141,6 +142,8 @@ nmap ; :
 nmap E :Explore<cr>
 nmap J <nop>
 nmap K <nop>
+"    Removes all trailing whitespace
+nmap <silent> T :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
 nmap Y y$
 nmap j gj
 nmap k gk
@@ -155,6 +158,8 @@ nmap <c-l> <c-w>l
 "    Move to next/previous buffer
 nmap <c-n> :bnext<cr>
 nmap <c-p> :bprev<cr>
+"    Super quick way to commit
+nmap <leader><leader> :Gcommit<cr>
 "    Open up a scratch buffer
 nmap <leader><tab> :Scratch<cr>
 "    Change directory to currently open file
