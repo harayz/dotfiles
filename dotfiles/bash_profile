@@ -1,29 +1,28 @@
-# Other
-export GIT_EDITOR=vim
-export SVN_EDITOR=vim
+export ANT_OPTS="-Xms512M -Xmx1024M -XX:MaxPermSize=1024M"
+export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 export EDITOR=vim
-export MAILCHECK=NO
-
-# Bash
+export GIT_EDITOR=vim
 export HISTCONTROL=erasedups:ignorespace
 export HISTIGNORE="ls:pwd:exit:mount:rm:screen:vi:cd"
+export JAVA_HOME=
+export JDK_HOME=$JAVA_HOME
+export MAILCHECK=NO
+export SVN_EDITOR=vim
+
 unset HISTSIZE
 unset HISTFILESIZE
+
 shopt -s histappend
 shopt -s extglob
 
-# Setup keychain
-if [ -e $HOME/.ssh/id_dsa ]; then
-  keychain --quiet $HOME/.ssh/id_dsa
-fi
-if [ -e $HOME/.ssh/id_rsa ]; then
-  keychain --quiet $HOME/.ssh/id_rsa
-fi
+if [ -e $HOME/.ssh/id_dsa ]; then keychain --quiet $HOME/.ssh/id_dsa; fi
+if [ -e $HOME/.ssh/id_rsa ]; then keychain --quiet $HOME/.ssh/id_rsa; fi
 
 source $HOME/.keychain/$HOSTNAME-sh
 source $HOME/.bash_functions
 source $HOME/.bash_aliases
 if [ -e $HOME/.bash_local ]; then source $HOME/.bash_local; fi
+
 addpath $HOME/bin
 addpath /sbin
 
@@ -31,7 +30,7 @@ addpath /sbin
 eval $(dircolors -b $HOME/.dircolors)
 promptcolors
 
-# Show directory in urxvt title bar
+# Show directory in terminal title bar
 case "$TERM" in
   xterm*|rxvt*)
     PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
