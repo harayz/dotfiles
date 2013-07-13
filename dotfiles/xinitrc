@@ -28,8 +28,8 @@ xinput set-int-prop 'TPPS/2 IBM TrackPoint' 'Evdev Wheel Emulation Axes' 8 6 7 4
 #GTK2_RC_FILES=/home/minhuang/.ibus-gtkrc-2.0 ibus-daemon --xim -d
 
 xscreensaver -nosplash &
-#autocutsel -fork &
-#autocutsel -fork -selection PRIMARY &
+autocutsel -fork &
+autocutsel -fork -selection PRIMARY &
 #autocutsel -fork -selection CLIPBOARD &
 xrdb -merge ~/.Xresources
 
