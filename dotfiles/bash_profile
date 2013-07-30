@@ -26,11 +26,9 @@ if [ -e $HOME/.bash_local ]; then source $HOME/.bash_local; fi
 addpath $HOME/bin
 addpath /sbin
 
-# Colorize prompt and directories
 eval $(dircolors -b $HOME/.dircolors)
 promptcolors
 
-# Show directory in terminal title bar
 case "$TERM" in
   xterm*|rxvt*)
     PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
