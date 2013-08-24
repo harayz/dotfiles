@@ -1,3 +1,18 @@
+" How to use retiman's flavor of vim with plugins 'o plenty
+" =========================================================
+" CamelCaseMotion
+"   <leader>w moves forward one word
+"   <leader>b moves backwards one word
+" ctrlp
+"   <c-t> opens file list
+"   <F5> refreshes an open file list
+" vim-fugitive
+"   <leader>gs opens up the git status window
+"   <leader>gc opens up the git commit window from the git status window
+"   :wq writes the commit
+"   :bd deletes the buffer
+" vim-reporoot
+"   :RepoRoot goes to the repository's root
 set nocompatible
 set clipboard=unnamed
 set fileencoding=utf-8
@@ -5,8 +20,9 @@ set termencoding=utf-8
 set autoindent
 set background=dark
 set backspace=indent,eol,start
+"set colorcolumn=
 set complete=.,w,b,t,i
-set completeopt=longest,menuone
+set completeopt=menuone
 set copyindent
 set expandtab
 set fileformat=unix
@@ -22,8 +38,10 @@ set indentexpr=
 set infercase
 set laststatus=2
 set lazyredraw
+set list
 set listchars=tab:│\ ,trail:·
 set modelines=0
+set mouse=
 set nobackup
 set noerrorbells
 set nofoldenable
@@ -32,8 +50,8 @@ set novisualbell
 set number
 set pastetoggle=<F1>
 set ruler
+set scrolloff=10
 set selection=inclusive
-set selectmode=mouse
 set shiftwidth=2
 set shiftround
 set showcmd
@@ -46,22 +64,40 @@ set softtabstop=2
 set t_Co=256
 set t_vb=
 set tabstop=2
+set textwidth=0
 set title
 set ttyfast
+"set undofile
+"set undodir=/tmp
 set wildmenu
 set wildchar=<tab>
-set wildignore=*.jpg,*.png,*.gif,*/.git/*,*/.hg/*,*/.svn/*,*.swp,*.swo,*~
+set wildignore=*.jpg,*.png,*.gif,*.swp,*.swo,*~
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 set wildignore+=*.class,*.jar,*/target/*,*/.idea/*,*.ipr,*.iml
 set wildignore+=*.o,*.obj,*.bak,*.exe
+set wildignore+=*/autodoc/*
 set wildmode=list:longest
+set wrapmargin=0
 
 let mapleader=','
-let g:ctrlp_map='<c-t>'
-let g:ctrlp_working_path_mode='r'
-let g:Powerline_symbols='compatible'
-let g:ackprg='ack -H --nocolor --nogroup --column'
-let g:buftabs_only_basename=1
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:bufferline_echo=0
+let g:bufferline_rotate=1
+let g:bufferline_show_bufnr=0
+let g:ctrlp_map='<c-0>'
+let g:ctrlp_working_path_mode='rw'
+let g:ctrlp_by_filename=1
+let g:ctrlp_clear_cache_on_exit=0
+let g:html_indent_inctags='html,body,head,tbody'
+let g:html_indent_script1='inc'
+let g:html_indent_style1='inc'
+let g:signify_update_on_bufenter=1
 let g:quickfix_is_open=0
+
+set statusline=%{bufferline#generate_string()}
+
+call pathogen#infect()
 
 syntax on
 filetype plugin indent on
@@ -71,12 +107,12 @@ colorscheme mango
 function! ToggleColorColumn()
   if empty(&colorcolumn)
     if empty(&textwidth)
-      setlocal colorcolumn=80
+      setlocal colorcolumn=81
     else
       setlocal colorcolumn=+1
     endif
   else
-    echo "colorcolumn="
+    echo 'colorcolumn='
     setlocal colorcolumn=
   endif
 endfunction
@@ -95,92 +131,102 @@ endfunction
 "   Toggle quicklist
 map <silent> <F2> :call QuickfixToggle()<cr>
 "   Toggle highlighting of really long lines
-map <silent> <F5>
-      \ :if exists('w:long_line_match') <Bar>
-      \   silent! call matchdelete(w:long_line_match) <Bar>
-      \   unlet w:long_line_match <Bar>
-      \ elseif &textwidth > 0 <Bar>
-      \   let w:long_line_match = matchadd('OverColLimit', '\%>'.&tw.'v.\+', -1) <Bar>
-      \ else <Bar>
-      \   let w:long_line_match = matchadd('OverColLimit', '\%>80v.\+', -1) <Bar>
-      \ endif<CR>
-"   Remove all trailing whitespace
-map <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
-"   Open/close the taglist
-map <silent> <F7> :TlistToggle<cr>
+map <silent> <F3> :call ToggleColorColumn()<cr>
 
 " Command mode mappings (same as cnoremap)
+"     Write to a read only file
 cmap w!! w !sudo tee % >/dev/null
 
 " Normal mode mappings (same as nnoremap)
 nmap ; :
-nmap / /\v
-nmap j gj
-nmap k gk
+nmap E :Explore<cr>
 nmap J <nop>
 nmap K <nop>
+"    Removes all trailing whitespace
+nmap <silent> T :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
+nmap Y y$
+nmap j gj
+nmap k gk
+"    Moves to matching brace/paren/bracket
 nmap <tab> %
+"    Go to tag definition
 nmap <c-g> <c-]>
 nmap <c-h> <c-w>h
 nmap <c-j> <c-w>j
 nmap <c-k> <c-w>k
 nmap <c-l> <c-w>l
+"    Move to next/previous buffer
 nmap <c-n> :bnext<cr>
 nmap <c-p> :bprev<cr>
+nmap <c-t> :RepoRoot<cr>:CtrlP<cr>
+"    Super quick way to commit
+nmap <leader><leader> :Gcommit<cr>
+"    Open up a scratch buffer
 nmap <leader><tab> :Scratch<cr>
-nmap <leader>a :Ack<space>
-nmap <leader>b :1pop<cr>
-nmap <leader>cd :cd %:p:h<cr>:pwd<cr>
+nmap <leader>Q :qa!<cr>
+"    Change directory to currently open file
+nmap <leader>cc :lcd %:p:h<cr>:pwd<cr>
+"    Delete the currently open buffer
 nmap <leader>d :bd<cr>:syn on<cr>
-nmap <leader>e :set expandtab! list!<cr>
+"    Working with fugitive.vim:
+"      Bring up Gstatus and press - to add or remove changes,
+"      then bring up Gcommit to actually commit those changes.
 nmap <leader>gb :Gblame<cr>
-nmap <leader>gd :Gdiff<cr>
 nmap <leader>gc :Gcommit<cr>
-nmap <leader>gl :Glog<cr>
+nmap <leader>gd :Gdiff<cr>
 nmap <leader>gs :Gstatus<cr>
-nmap <leader>i :set list!<cr>
-nmap <leader>j <c-]><cr>
-nmap <leader>l :call QuickfixToggle()<cr>
+nmap <leader>l :set list!<cr>
+nmap <leader>n :set number!<cr>
+"    Paste from primary selection
 nmap <leader>pp :r!xsel -p<cr>
+"    Paste from secondary selection
 nmap <leader>ps :r!xsel -s<cr>
+"    Paste from clipboard selection
 nmap <leader>pb :r!xsel -b<cr>
-nmap <leader>r :res<cr>
+nmap <leader>re :res<cr>
+"    Change directory to repository root
+nmap <leader>rr :RepoRoot<cr>:pwd<cr>
 " nmap <leader>s (used by slime.vim)
 nmap <silent> <leader>t :!ctags -R * &<cr><cr>
-nmap <leader>u :set number!<cr>
-nmap <leader>v V`]
-nmap <leader>q :q!<cr>
+"    Open quickfix list
+nmap <leader>q :call QuickfixToggle()<cr>
 " nmap <leader>x (used by slime.vim)
+"    Read standard input into clipboard
 nmap <silent> <leader>yy :w !xsel -i -b<cr><cr>
 nmap <leader>= <c-w>=<cr>
 nmap <leader>/ :set hlsearch!<cr>
 
 " Visual mode mappings (same as vnoremap)
-vmap / /\v
-vmap j gj
-vmap k gk
 vmap <tab> %
+nmap E :Explore<cr>
 vmap J <nop>
 vmap K <nop>
+vmap j gj
+vmap k gk
+"    Paste from primary selection
 vmap <leader>pp :r!xsel -p<cr>
+"    Paste from secondary selection
 vmap <leader>ps :r!xsel -s<cr>
+"    Paste from clipboard selection
 vmap <leader>pb :r!xsel -b<cr>
+"    Read standard input into clipboard
 vmap <silent> <leader>yy :w !xsel -i -b<cr><cr>
 
 " Insert mode mappings (same as inoremap)
-"   When an auto-complete menu is presented, the first item is selected by
-"   default
-imap <expr> <c-n> pumvisible() ? '<c-n>' :
-    \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
+"   Pressing Enter while menu is open inserts highlighted item
+inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
+"   Ensures an item is always highlighted
+inoremap <expr> <c-n> pumvisible() ? '<c-n>' :
+  \ '<c-n><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
 "   Simulates <c-x><c-o> to bring up omni-complete, and simulates <c-n><c-p>
 "   to remove the longest common text
-imap <expr> <m-,> pumvisible() ? '<c-n>' :
-    \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <m-,> pumvisible() ? '<c-n>' :
+  \ '<c-x><c-o><c-n><c-p><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
 "   Maps ctrl+space to autocomplete, just like in your favorite IDEs
-imap <nul> <c-x><c-u><c-p>
+inoremap <nul> <c-x><c-u><c-p>
 
 " Highlight really long lines
-highlight OverColLimit ctermbg=darkblue
+highlight ColorColumn ctermbg=darkblue
 
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
