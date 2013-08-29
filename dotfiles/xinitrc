@@ -53,6 +53,9 @@ autocutsel -fork -selection CLIPBOARD -buttonup --pause 1000 &
 # delay is added before the selection is owned.
 autocutsel -fork -selection PRIMARY -buttonup --pause 1000 &
 
+# Set a wallpaper!
+feh --bg-scale $HOME/data/wallpaper.jpg
+
 # If using .xinitrc, this file will not be read by default, so read merge
 # it here.
 #
