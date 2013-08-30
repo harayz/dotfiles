@@ -17,14 +17,10 @@ force_focus_wrapping no
 workspace_auto_back_and_forth no
 
 # workspace assignments; use xprop to find out WM_CLASS
-assign [class="Xpdf"] 10: vm
-assign [class="jetbrains-idea"] 7: dev
 assign [class="Eclipse"] 7: dev
 assign [class="java-lang-Thread"] 7: dev
 assign [class="sun-awt-X11-XFramePeer"] 7: dev
 assign [class="Thunar"] 8: file
-assign [class="chromium"] 9: www
-assign [class="Chromium"] 9: www
 assign [class="google-chrome"] 9: www
 assign [class="Google-chrome"] 9: www
 assign [class="rdesktop"] 10: vm
@@ -32,11 +28,8 @@ assign [class="VirtualBox"] 10: vm
 assign [class="Avidemux2_gtk"] 8: file
 
 # per window commands
-for_window [class="jetbrains-idea"] layout stacking
 for_window [class="Eclipse"] layout stacking
 for_window [class="Avidemux2_gtk"] floating enable
-for_window [class="chromium"] layout stacking
-for_window [class="Chromium"] layout stacking
 for_window [class="display"] floating enable
 for_window [class="Display"] floating enable
 for_window [class="feh"] floating enable
@@ -47,7 +40,6 @@ for_window [class="Google-chrome"] layout stacking
 for_window [class="MPlayer"] floating enable
 for_window [class="mplayer2"] floating enable
 for_window [class="VirtualBox"] layout stacking
-for_window [class="xmms"] floating enable
 
 # color classes         border  back    text
 client.focused          #005577 #005577 #a0ff00
