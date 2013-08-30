@@ -49,7 +49,6 @@ client.urgent           #00ffff #242424 #f6f3e8
 
 # start a terminal
 bindsym $mod+Return exec urxvt
-bindsym $mod+Shift+Return split v; exec urxvt
 
 # workspace back and forth
 #bindsym $mod+g workspace back_and_forth
