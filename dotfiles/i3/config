@@ -145,6 +145,22 @@ bindcode 82 exec amixer -c 0 set Master 2dB- unmute
 bindcode 86 exec amixer -c 0 set Master 2dB+ unmute
 bindcode 104 exec amixer sset Master toggle
 
+# present a menu when you press mod q
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+q mode "$mode_system"
+
 # start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
