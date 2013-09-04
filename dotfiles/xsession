@@ -18,7 +18,6 @@ xset m 2
 # Enable vertical scrolling for trackpoint.
 #xinput set-int-prop 'TPPS/2 IBM TrackPoint' 'Evdev Wheel Emulation' 8 1
 #xinput set-int-prop 'TPPS/2 IBM TrackPoint' 'Evdev Wheel Emulation Button' 8 2
-#xinput set-int-prop 'TPPS/2 IBM TrackPoint' 'Evdev Wheel Emulation Timeout' 8 200
 
 # Enable horizontal scrolling for trackpoint.
 #xinput set-int-prop 'TPPS/2 IBM TrackPoint' 'Evdev Wheel Emulation Axes' 8 6 7 4 5
@@ -66,7 +65,7 @@ xrdb -merge ~/.Xresources
 #xscreensaver -nosplash &
 
 # Make looking at the screen at night easier on the eyes.
-/usr/bin/redshift -o -l 0:0 -b 0.8 -t 6500:6500
+redshift -o -l 0:0 -b 0.8 -t 6500:6500
 
 # Prepending exec is recommended as it replaces the current process with the
 # process, so the script will stop running and X won't exit even if the process
