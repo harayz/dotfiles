@@ -44,6 +44,7 @@ case "$TERM" in
 esac
 
 # Custom Configuration (edge)
+export TERMINAL=urxvtc
 eval `keychain --eval --agents ssh -Q --quiet $HOME/.leiningen/id_rsa`
 addpath $HOME/.gem/ruby/2.0.0/bin
 addpath '/opt/android-sdk/platform-tools'
