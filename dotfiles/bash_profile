@@ -1,3 +1,4 @@
+# Environment Variables
 export _JAVA_OPTION=
 export ANT_OPTS="-Xms512M -Xmx1024M -XX:MaxPermSize=1024M"
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
@@ -10,30 +11,30 @@ export HISTCONTROL=erasedups:ignorespace
 export HISTIGNORE="ls:pwd:exit:mount:rm:screen:vi:cd"
 export MAILCHECK=NO
 export SVN_EDITOR=vim
-
 unset HISTSIZE
 unset HISTFILESIZE
 
+# Additional Shell Options
 shopt -s histappend
 shopt -s extglob
 
-if [ -e $HOME/.ssh/id_dsa ]; then keychain --quiet $HOME/.ssh/id_dsa; fi
-if [ -e $HOME/.ssh/id_rsa ]; then keychain --quiet $HOME/.ssh/id_rsa; fi
-if [ -e $HOME/.leiningen/id_rsa ]; then keychain --quiet $HOME/.leiningen/id_rsa; fi
+# Keychain
+eval $(keychain --eval --agents ssh -Q --quiet id_dsa)
+eval $(keychain --eval --agents ssh -Q --quiet id_rsa)
 
-source $HOME/.keychain/$HOSTNAME-sh
-source $HOME/.bash_functions
+# Additional Bash Configuration
 source $HOME/.bash_aliases
-if [ -e $HOME/.bash_local ]; then source $HOME/.bash_local; fi
+source $HOME/.bash_functions
+include $HOME/.bash_local
 
-addpath $JAVA_HOME/bin
+# Additional PATHs
 addpath $HOME/bin
-addpath $HOME/.gem/ruby/2.0.0/bin
-addpath '/opt/android-sdk/platform-tools'
 
+# Color Options
 eval $(dircolors -b $HOME/.dircolors)
 promptcolors
 
+# Add working directory to terminal title
 case "$TERM" in
   xterm*|rxvt*)
     PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
@@ -41,3 +42,8 @@ case "$TERM" in
     *)
   ;;
 esac
+
+# Custom Configuration (edge)
+eval `keychain --eval --agents ssh -Q --quiet $HOME/.leiningen/id_rsa`
+addpath $HOME/.gem/ruby/2.0.0/bin
+addpath '/opt/android-sdk/platform-tools'

@@ -15,15 +15,19 @@
 "   :RepoRoot goes to the repository's root
 set nocompatible
 set clipboard=unnamedplus
+set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
+
 set autoindent
+set autoread
 set background=dark
 set backspace=indent,eol,start
 set colorcolumn=
 set complete=.,w,b,t,i
 set completeopt=menuone
 set copyindent
+set display+=lastline
 set expandtab
 set fileformat=unix
 set fillchars=stl:\ ,stlnc:\ 
@@ -163,7 +167,6 @@ nmap <c-t> :RepoRoot<cr>:CtrlP<cr>
 nmap <leader><leader> :Gcommit<cr>
 "    Open up a scratch buffer
 nmap <leader><tab> :Scratch<cr>
-nmap <leader>Q :qa!<cr>
 "    Change directory to currently open file
 nmap <leader>cc :lcd %:p:h<cr>:pwd<cr>
 "    Delete the currently open buffer
@@ -179,21 +182,19 @@ nmap <leader>l :set list!<cr>
 nmap <leader>n :set number!<cr>
 "    Paste from the CLIPBOARD selection.  Use autocutsel to keep the PRIMARY
 "    and CLIPBOARD selections in sync to make copying easier.
-vmap <leader>p :r!xsel -b<cr>
+nmap <leader>p :r!xsel -b<cr>
 nmap <leader>re :res<cr>
 "    Change directory to repository root
 nmap <leader>rr :RepoRoot<cr>:pwd<cr>
 " nmap <leader>s (used by slime.vim)
 nmap <silent> <leader>t :!ctags -R * &<cr><cr>
-"    Open quickfix list
-nmap <leader>q :call QuickfixToggle()<cr>
+nmap <leader>q :qa!<cr>
 " nmap <leader>x (used by slime.vim)
 nmap <leader>= <c-w>=<cr>
 nmap <leader>/ :set hlsearch!<cr>
 
 " Visual mode mappings (same as vnoremap)
 vmap <tab> %
-nmap E :Explore<cr>
 vmap J <nop>
 vmap K <nop>
 vmap j gj
