@@ -109,12 +109,6 @@ function repoparse {
   hgparsebranch
 }
 
-# Copies vim project settings to a project using vim.  Project settings are
-# based on language.
-function vimproject {
-    cp $HOME/.vim/project/${1}/project.vim .
-}
-
 # Search your bash history for a command
 function h {
   history | grep "$@"
@@ -149,4 +143,9 @@ function addpath {
     #PATH="${PATH:+"$PATH:"}$1"
     PATH="$1:$PATH"
   fi
+}
+
+# Source a file only if it exists.
+function include {
+  [[ -f "$1" ]] && source "$1"
 }
