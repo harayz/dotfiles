@@ -13,12 +13,15 @@
 "   :bd deletes the buffer
 " vim-reporoot
 "   :RepoRoot goes to the repository's root
+
+" These set directives must be set first.
 set nocompatible
 set clipboard=unnamedplus
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
 
+" These set directives can be listed in any order.
 set autoindent
 set autoread
 set background=dark
@@ -65,6 +68,7 @@ set smartcase
 set smartindent
 set smarttab
 set softtabstop=2
+set statusline=%{bufferline#generate_string()}
 set t_Co=256
 set t_vb=
 set tabstop=2
@@ -98,8 +102,6 @@ let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
 let g:signify_update_on_bufenter=1
 let g:quickfix_is_open=0
-
-set statusline=%{bufferline#generate_string()}
 
 call pathogen#infect()
 
@@ -206,19 +208,16 @@ vmap k gk
 
 " Insert mode mappings (same as inoremap)
 "   Pressing Enter while menu is open inserts highlighted item
-inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
+imap <expr> <cr> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
 "   Ensures an item is always highlighted
-inoremap <expr> <c-n> pumvisible() ? '<c-n>' :
+imap <expr> <c-n> pumvisible() ? '<c-n>' :
   \ '<c-n><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
 "   Simulates <c-x><c-o> to bring up omni-complete, and simulates <c-n><c-p>
 "   to remove the longest common text
-inoremap <expr> <m-,> pumvisible() ? '<c-n>' :
+imap <expr> <m-,> pumvisible() ? '<c-n>' :
   \ '<c-x><c-o><c-n><c-p><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
 "   Maps ctrl+space to autocomplete, just like in your favorite IDEs
-inoremap <nul> <c-x><c-u><c-p>
-
-" Highlight really long lines
-highlight ColorColumn ctermbg=darkblue
+imap <nul> <c-x><c-u><c-p>
 
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
