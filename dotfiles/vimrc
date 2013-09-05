@@ -13,12 +13,15 @@
 "   :bd deletes the buffer
 " vim-reporoot
 "   :RepoRoot goes to the repository's root
+
+" These set directives must be set first.
 set nocompatible
 set clipboard=unnamedplus
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
 
+" These set directives can be listed in any order.
 set autoindent
 set autoread
 set background=dark
@@ -84,22 +87,34 @@ set wildmode=list:longest
 set wrapmargin=0
 
 let mapleader=','
+let g:airline#extensions#whitespace#enabled=0
+let g:airline#extensions#hunks#enabled=0
+let g:airline_exclude_preview=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+let g:airline_section_x=''
+let g:airline_section_z=''
+let g:bufferline_active_buffer_left='['
+let g:bufferline_active_buffer_right=']'
 let g:bufferline_echo=0
-let g:bufferline_rotate=1
+let g:bufferline_fixed_index=0
+let g:bufferline_rotate=2
 let g:bufferline_show_bufnr=0
+let g:csv_autocmd_arrange=1
 let g:ctrlp_map='<c-0>'
 let g:ctrlp_working_path_mode='rw'
 let g:ctrlp_by_filename=1
 let g:ctrlp_clear_cache_on_exit=0
+let g:gitgutter_signs=0
 let g:html_indent_inctags='html,body,head,tbody'
 let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
-let g:signify_update_on_bufenter=1
 let g:quickfix_is_open=0
-
-set statusline=%{bufferline#generate_string()}
+let g:startify_custom_header='        Sup son? ( ¯\_(ツ)_/¯ )'
+let g:startify_change_to_vcs_root=1
+let g:startify_files_number=5
+let g:startify_list_order=['sessions', 'files', 'bookmarks']
+let g:startify_session_persistence=1
 
 call pathogen#infect()
 
@@ -131,28 +146,27 @@ function! QuickfixToggle()
     endif
 endfunction
 
-" Mappings
-"   Toggle quicklist
+" Normal, visual, and operator-pending mode mappings
+map <tab> %
+"    Toggle quicklist
 map <silent> <F2> :call QuickfixToggle()<cr>
-"   Toggle highlighting of really long lines
+"    Toggle highlighting of really long lines
 map <silent> <F3> :call ToggleColorColumn()<cr>
+map ; :
+map E :Explore<cr>
+map J <nop>
+map K <nop>
+"    Removes all trailing whitespace
+map <silent> T :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
+map Y y$
+map j gj
+map k gk
 
-" Command mode mappings (same as cnoremap)
-"     Write to a read only file
+" Command mode mappings
+"    Write to a read only file
 cmap w!! w !sudo tee % >/dev/null
 
-" Normal mode mappings (same as nnoremap)
-nmap ; :
-nmap E :Explore<cr>
-nmap J <nop>
-nmap K <nop>
-"    Removes all trailing whitespace
-nmap <silent> T :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<cr>
-nmap Y y$
-nmap j gj
-nmap k gk
-"    Moves to matching brace/paren/bracket
-nmap <tab> %
+" Normal mode mappings
 "    Go to tag definition
 nmap <c-g> <c-]>
 nmap <c-h> <c-w>h
@@ -163,8 +177,9 @@ nmap <c-l> <c-w>l
 nmap <c-n> :bnext<cr>
 nmap <c-p> :bprev<cr>
 nmap <c-t> :RepoRoot<cr>:CtrlP<cr>
-"    Super quick way to commit
-nmap <leader><leader> :Gcommit<cr>
+"    Super quick way to show status and commit
+nmap <leader><leader> :Gstatus<cr>
+nmap <leader>. :Gcommit<cr>
 "    Open up a scratch buffer
 nmap <leader><tab> :Scratch<cr>
 "    Change directory to currently open file
@@ -186,39 +201,18 @@ nmap <leader>p :r!xsel -b<cr>
 nmap <leader>re :res<cr>
 "    Change directory to repository root
 nmap <leader>rr :RepoRoot<cr>:pwd<cr>
-" nmap <leader>s (used by slime.vim)
+nmap <leader>sd :SDelete<cr>
+nmap <leader>sl :SLoad<cr>
+nmap <leader>ss :SSave<cr>
 nmap <silent> <leader>t :!ctags -R * &<cr><cr>
+nmap <leader>v :call Screen_Vars()<cr>
 nmap <leader>q :qa!<cr>
-" nmap <leader>x (used by slime.vim)
+nmap <leader>x vip"ry :call Send_to_Screen(@r)<cr>
 nmap <leader>= <c-w>=<cr>
 nmap <leader>/ :set hlsearch!<cr>
 
-" Visual mode mappings (same as vnoremap)
-vmap <tab> %
-vmap J <nop>
-vmap K <nop>
-vmap j gj
-vmap k gk
-"    This will make y also copy into the + register, which is also the X
-"    Windows CLIPBOARD selection.  However, you can get this behavior with
-"    Vim 7.3 using set clipboard=unnamedplus.
-" vmap <silent> y :yank<cr>:w !xsel -i -b<cr><cr>
-
-" Insert mode mappings (same as inoremap)
-"   Pressing Enter while menu is open inserts highlighted item
-inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<c-g>u\<cr>"
-"   Ensures an item is always highlighted
-inoremap <expr> <c-n> pumvisible() ? '<c-n>' :
-  \ '<c-n><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
-"   Simulates <c-x><c-o> to bring up omni-complete, and simulates <c-n><c-p>
-"   to remove the longest common text
-inoremap <expr> <m-,> pumvisible() ? '<c-n>' :
-  \ '<c-x><c-o><c-n><c-p><c-r>=pumvisible() ? "\<lt>Down>" : ""<cr>'
-"   Maps ctrl+space to autocomplete, just like in your favorite IDEs
-inoremap <nul> <c-x><c-u><c-p>
-
-" Highlight really long lines
-highlight ColorColumn ctermbg=darkblue
+" Visual mode mappings
+" vmap <leader>s "ry :call Send_to_Screen(@r)<cr>
 
 " Highlight all trailing whitespace
 au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
