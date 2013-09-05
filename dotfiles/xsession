@@ -62,7 +62,7 @@ feh --bg-scale $HOME/data/wallpaper.jpg
 xrdb -merge ~/.Xresources
 
 # Enable the screensaver.
-#xscreensaver -nosplash &
+xscreensaver -nosplash &
 
 # Make looking at the screen at night easier on the eyes.
 redshift -o -l 0:0 -b 0.8 -t 6500:6500
