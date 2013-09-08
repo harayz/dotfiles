@@ -55,6 +55,7 @@ set nofoldenable
 set noswapfile
 set novisualbell
 set number
+set omnifunc=syntaxcomplete#Complete
 set pastetoggle=<F1>
 set ruler
 set scrolloff=15
