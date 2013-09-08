@@ -12,9 +12,9 @@ function! airline#extensions#bufferline#init(ext)
     let g:bufferline_active_buffer_right = ']'
     let g:bufferline_echo=0
     let g:bufferline_fixed_index=1
-    let g:bufferline_inactive_highlight = 'airline_c'
+    let g:bufferline_inactive_highlight='airline_c'
     let g:bufferline_rotate=1
-    let g:bufferline_separator = ' '
+    let g:bufferline_separator=' '
     let g:bufferline_show_bufnr=0
   endif
 
