@@ -150,7 +150,8 @@ function include {
   [[ -f "$1" ]] && source "$1"
 }
 
-# Set up vim with a project file
+# Set up vim with a project file.
 function vp {
-  cp "$HOME/.vim/project/$1/project.vim" .
+  rr
+  ln -s "$HOME/.vim/project/$1.vim" ./project.vim
 }
