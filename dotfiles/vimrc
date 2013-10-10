@@ -8,11 +8,14 @@
 "   <F5> refreshes an open file list
 " vim-reporoot
 "   :RepoRoot goes to the repository's root
+" vim-fugitive
+"   ,, opens git status
+"   - stages or unstages a change
+"   cc commits
 "
 " A note about setting mouse=a: it turns out you can't copy and paste symbols
 " like ツ with mouse=a unless you hold shift while selecting with the mouse
 " or hold shift when pasting (alternatively you can disable mouse=a).
-
 
 " These set directives must be set first.
 set nocompatible
@@ -91,8 +94,6 @@ set wrapmargin=0
 " See vim/bundle/vim-airline/autoload/airline/extensions for vim-bufferline
 " configuration.
 let mapleader=','
-let g:acp_enabled=1
-let g:acp_behaviorKeywordIgnores=['get']
 let g:airline#extensions#bufferline#overwrite_variables=0
 let g:airline#extensions#whitespace#enabled=0
 let g:airline#extensions#hunks#enabled=0
@@ -120,6 +121,9 @@ let g:gitgutter_signs=0
 let g:html_indent_inctags='html,body,head,tbody'
 let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
+let g:neocomplcache_enable_at_startup=1
+let g:neocomplcache_enable_smart_case=1
+let g:neocomplcache_enable_auto_select=1
 let g:quickfix_is_open=0
 let g:startify_custom_header='        Sup son? ( ¯\_(ツ)_/¯ )'
 let g:startify_change_to_vcs_root=1
@@ -133,23 +137,11 @@ call pathogen#infect()
 syntax on
 filetype plugin on
 filetype indent on
-colorscheme mango
+colorscheme grb256
 highlight bufferline_selected gui=bold cterm=bold term=bold
 highlight link bufferline_selected_inactive airline_c_inactive
 
 " Functions
-function! ToggleAutoCompl()
-  if g:acp_enabled
-    AcpDisable
-    let g:acp_enabled=0
-    echo 'autocomplpop disabled'
-  else
-    AcpEnable
-    let g:acp_enabled=1
-    echo 'autocomplpop enabled'
-  endif
-endfunction
-
 function! ToggleColorColumn()
   if empty(&colorcolumn)
     setlocal colorcolumn=81
@@ -183,7 +175,6 @@ endfunction
 " Normal, visual, and operator-pending mode mappings.
 noremap <tab> %
 noremap <silent> <F2> :call ToggleMouse()<cr>
-noremap <silent> <F3> :call ToggleAutoCompl()<cr>
 noremap <silent> <F4> :call ToggleColorColumn()<cr>
 noremap <silent> <F5> :call ToggleQuickFix()<cr>
 noremap ; :
@@ -197,35 +188,24 @@ noremap j gj
 noremap k gk
 
 " Command mode mappings.
-"   Write to a read only file.
 cnoremap w!! w !sudo tee % >/dev/null
 
 " Normal mode mappings.
-"   Go to tag definition.
 nnoremap <c-g> <c-]>
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
-"   Move to next/previous buffer.
 nnoremap <c-n> :bnext<cr>
 nnoremap <c-p> :bprev<cr>
 nnoremap <c-t> :RepoRoot<cr>:CtrlP<cr>
-"   Working with fugitive.vim:
-"    -  Stage or unstage changes.
-"    cc Commit any changes.
 nnoremap <leader>, :Gstatus<cr>
-"   Change directory to currently open file.
 nnoremap <leader>cc :lcd %:p:h<cr>:pwd<cr>
-"   Delete the currently open buffer
 nnoremap <leader>d :bd<cr>:syn on<cr>
 nnoremap <leader>l :set list!<cr>
 nnoremap <leader>n :set number!<cr>
-"   Paste from the CLIPBOARD selection.  Use autocutsel to keep the PRIMARY
-"   and CLIPBOARD selections in sync to make copying easier.
 nnoremap <leader>p :r!xsel -b<cr>
 nnoremap <leader>re :res<cr>
-"   Change directory to repository root.
 nnoremap <leader>rr :RepoRoot<cr>:pwd<cr>
 nnoremap <leader>sd :SDelete<cr>
 nnoremap <leader>ss :SSave<cr>
@@ -237,28 +217,22 @@ nnoremap <leader>= <c-w>=<cr>
 nnoremap <leader>/ :set hlsearch!<cr>
 
 " Visual mode mappings.
-" vnoremap <leader>s "ry :call Send_to_Screen(@r)<cr>
-"   Automatically highlight visually selected text again after shifting.
 vnoremap < <gv
 vnoremap > >gv
 
 " Insert mode mappings
-"   Make Vim behave more like an IDE.
-inoremap <expr> <esc> pumvisible() ? '<c-e>' : '<esc>'
-"   This keeps a menu item highlighted all the time.
-"   See: http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
-inoremap <expr> <c-n> pumvisible() ? '<c-n>' : '<nop>'
-inoremap <expr> <cr> pumvisible() ? '<c-y>' : '<cr>'
-"   The following will not work depending on what you have set your term to.
-"
-"   inoremap <expr> <down> pumvisible() ? '<c-n>' : '<down>'
-"
 "   See: http://vim.wikia.com/wiki/Fix_arrow_keys_that_display_A_B_C_D_on_remote_shell
-inoremap <expr> OB pumvisible() ? '<c-n>' : '<down>'
-inoremap <expr> OA pumvisible() ? '<c-p>' : '<up>'
-"   When using smartindent, lines starting with # have their indentation
-"   removed.  This mapping fixes that problem; remove this mapping if not
-"   using smartindent.
+"   See: http://vim.wikia.com/wiki/Restoring_indent_after_typing_hash
+inoremap <expr> <esc> pumvisible() ?
+    \ '<c-e>' . neocomplcache#smart_close_popup()
+    \ : '<esc>'
+inoremap <expr> <cr> pumvisible() ?
+    \ '<c-y>' . neocomplcache#close_popup()
+    \ : '<cr>'
+inoremap <expr> OB pumvisible() ?
+    \ '<c-n>' : '<down>'
+inoremap <expr> OA pumvisible() ?
+    \ '<c-p>' : '<up>'
 inoremap # X#
 
 " Highlight all trailing whitespace.
