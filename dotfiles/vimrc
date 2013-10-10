@@ -122,8 +122,10 @@ let g:html_indent_inctags='html,body,head,tbody'
 let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
 let g:neocomplcache_enable_at_startup=1
+let g:neocomplcache_enable_camel_case_completion=1
+let g:neocomplcache_enable_prefetch=1
 let g:neocomplcache_enable_smart_case=1
-" let g:neocomplcache_enable_auto_select=1
+let g:neocomplcache_enable_underbar_completion=1
 let g:quickfix_is_open=0
 let g:startify_custom_header='        Sup son? ( ¯\_(ツ)_/¯ )'
 let g:startify_change_to_vcs_root=1
@@ -176,13 +178,12 @@ endfunction
 " Normal, visual, and operator-pending mode mappings.
 noremap <tab> %
 noremap <silent> <F2> :call ToggleMouse()<cr>
-noremap <silent> <F4> :call ToggleColorColumn()<cr>
-noremap <silent> <F5> :call ToggleQuickFix()<cr>
+noremap <silent> <F3> :call ToggleColorColumn()<cr>
+noremap <silent> <F4> :call ToggleQuickFix()<cr>
 noremap ; :
 noremap E :Explore<cr>
 noremap J <nop>
 noremap K <nop>
-"   Removes all trailing whitespace.
 noremap <silent> T :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 noremap Y y$
 noremap j gj
@@ -235,9 +236,6 @@ inoremap <expr> OB pumvisible() ?
 inoremap <expr> OA pumvisible() ?
     \ '<c-p>' : '<up>'
 inoremap # X#
-
-" Highlight all trailing whitespace.
-autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
 
 " Project specific settings.
 set secure
