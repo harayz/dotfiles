@@ -223,7 +223,7 @@ vnoremap > >gv
 "   See: http://vim.wikia.com/wiki/Fix_arrow_keys_that_display_A_B_C_D_on_remote_shell
 "   See: http://vim.wikia.com/wiki/Restoring_indent_after_typing_hash
 inoremap <expr> <esc> pumvisible() ?
-    \ '<c-e>' . neocomplcache#smart_close_popup()
+    \ neocomplcache#cancel_popup()
     \ : '<esc>'
 inoremap <expr> <cr> pumvisible() ?
     \ '<c-n><c-y>' . neocomplcache#smart_close_popup()
