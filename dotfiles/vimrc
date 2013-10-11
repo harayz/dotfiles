@@ -84,17 +84,14 @@ set ttyfast
 " set undodir=/tmp
 set wildmenu
 set wildchar=<tab>
-set wildignore=*.jpg,*.png,*.gif,*.swp,*.swo,*~
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
-set wildignore+=*.class,*.jar,*/target/*,*/.idea/*,*.ipr,*.iml
-set wildignore+=*.o,*.obj,*.bak,*.exe
-set wildignore+=*/autodoc/*
+set wildignore=*.swp,*.swo,*~
 set wildmode=list:longest
 set wrapmargin=0
 
 " See vim/bundle/vim-airline/autoload/airline/extensions for vim-bufferline
 " configuration.
 let mapleader=','
+let g:SuperTabDefaultCompletionType='context'
 let g:airline#extensions#bufferline#overwrite_variables=0
 let g:airline#extensions#whitespace#enabled=0
 let g:airline#extensions#hunks#enabled=0
@@ -102,7 +99,7 @@ let g:airline_exclude_preview=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_section_x='%{&ft} %{&fenc}'
-let g:airline_section_y='fo=%{&fo} tw=%{&tw}'
+let g:airline_section_y='fo=%{&fo} tw=%{&tw} l=%{&list}'
 let g:airline_section_z='%p%% %3l:%3c'
 let g:bufferline_active_highlight='bufferline_selected'
 let g:bufferline_active_buffer_left='['
@@ -114,18 +111,16 @@ let g:bufferline_rotate=1
 let g:bufferline_separator=' '
 let g:bufferline_show_bufnr=1
 let g:csv_autocmd_arrange=1
-let g:ctrlp_map='<c-0>'
-let g:ctrlp_working_path_mode='rw'
 let g:ctrlp_by_filename=1
 let g:ctrlp_clear_cache_on_exit=0
+let g:ctrlp_map='<c-0>'
+let g:ctrlp_reuse_window='startify'
+let g:ctrlp_working_path_mode='rw'
 let g:gitgutter_signs=0
 let g:html_indent_inctags='html,body,head,tbody'
 let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
 let g:neocomplcache_enable_at_startup=1
-let g:neocomplcache_enable_camel_case_completion=1
-let g:neocomplcache_enable_prefetch=1
-let g:neocomplcache_enable_underbar_completion=1
 let g:quickfix_is_open=0
 let g:solarized_bold=0
 let g:solarized_termcolors=256
@@ -135,7 +130,6 @@ let g:startify_change_to_vcs_root=1
 let g:startify_files_number=5
 let g:startify_list_order=['sessions', 'files', 'bookmarks']
 let g:startify_session_persistence=1
-let g:SuperTabDefaultCompletionType='context'
 
 call pathogen#infect()
 syntax on
@@ -243,5 +237,5 @@ inoremap # X#
 "   to override any settings you want.
 set secure
 autocmd VimEnter * RepoRoot
-autocmd VimEnter * silent! source ./project.vim
+autocmd BufEnter * silent! lcd %:p:h
 autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
