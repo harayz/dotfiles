@@ -16,7 +16,6 @@ terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 vbell off
 vbell_msg ^G
 
-screen -t irb    0 sh -c "irb; bash -l"
-screen -t rkt    1 sh -c "rlwrap racket; bash -l"
-screen -t www    2 sh -c "bash -l"
-screen -t bash   3 sh -c "bash -l"
+screen -t irb  0 sh -c "irb; bash -l"
+screen -t rkt  1 sh -c "rlwrap racket; bash -l"
+screen -t py2  2 sh -c "python2; -l"
