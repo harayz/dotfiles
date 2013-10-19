@@ -109,7 +109,7 @@ let g:bufferline_active_buffer_right=']'
 let g:bufferline_echo=0
 let g:bufferline_fixed_index=0
 let g:bufferline_inactive_highlight='airline_c'
-let g:bufferline_rotate=1
+let g:bufferline_rotate=0
 let g:bufferline_separator=' '
 let g:bufferline_show_bufnr=1
 let g:csv_autocmd_arrange=1
@@ -187,8 +187,10 @@ noremap <silent> <F3> :call ToggleColorColumn()<cr>
 noremap <silent> <F4> :call ToggleQuickFix()<cr>
 noremap ; :
 noremap E :Explore<cr>
+noremap H <nop>
 noremap J <nop>
 noremap K <nop>
+noremap L <nop>
 noremap <silent> T :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 noremap Y y$
 noremap j gj
