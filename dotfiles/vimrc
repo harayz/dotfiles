@@ -30,7 +30,6 @@ set autoindent
 set autoread
 set background=dark
 set backspace=indent,eol,start
-" set colorcolumn=81
 set complete=.,w,b,t,i
 set completeopt=longest,menuone
 set copyindent
@@ -61,7 +60,7 @@ set nofoldenable
 set noswapfile
 set novisualbell
 set number
-set pastetoggle=<F1>
+set pastetoggle=<f1>
 set ruler
 set scrolloff=15
 set selection=inclusive
@@ -109,16 +108,17 @@ let g:bufferline_active_buffer_right=']'
 let g:bufferline_echo=0
 let g:bufferline_fixed_index=0
 let g:bufferline_inactive_highlight='airline_c'
-let g:bufferline_rotate=1
+let g:bufferline_rotate=0
 let g:bufferline_separator=' '
 let g:bufferline_show_bufnr=1
 let g:csv_autocmd_arrange=1
 let g:ctrlp_by_filename=1
 let g:ctrlp_clear_cache_on_exit=0
-let g:ctrlp_map='<c-0>'
+let g:ctrlp_lazy_update=1
+let g:ctrlp_map='<c-t>'
 let g:ctrlp_reuse_window='startify'
-let g:ctrlp_working_path_mode='rw'
-let g:gitgutter_signs=0
+let g:ctrlp_root_markers=['project.vim', '.git']
+let g:ctrlp_working_path_mode='ra'
 let g:html_indent_inctags='html,body,head,tbody'
 let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
@@ -129,7 +129,6 @@ let g:solarized_italic=0
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 let g:startify_custom_header='        Sup son? ( ¯\_(ツ)_/¯ )'
-let g:startify_change_to_vcs_root=1
 let g:startify_files_number=5
 let g:startify_list_order=['sessions', 'files', 'bookmarks']
 let g:startify_session_persistence=1
@@ -187,8 +186,10 @@ noremap <silent> <F3> :call ToggleColorColumn()<cr>
 noremap <silent> <F4> :call ToggleQuickFix()<cr>
 noremap ; :
 noremap E :Explore<cr>
+noremap H <nop>
 noremap J <nop>
 noremap K <nop>
+noremap L <nop>
 noremap <silent> T :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 noremap Y y$
 noremap j gj
@@ -205,7 +206,6 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <c-n> :bnext<cr>
 nnoremap <c-p> :bprev<cr>
-nnoremap <c-t> :RepoRoot<cr>:CtrlP<cr>
 nnoremap <leader>, :Gstatus<cr>
 nnoremap <leader>cc :lcd %:p:h<cr>:pwd<cr>
 nnoremap <leader>d :bd<cr>:syn on<cr>
