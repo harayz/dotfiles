@@ -5,10 +5,10 @@ xset r rate 275 30
 xset -b
 
 # Swap capslock and control.
-setxkbmap -option ctrl:swapcaps
+#setxkbmap -option ctrl:swapcaps
 
 # Turn off the damned touchpad.
-synclient TouchpadOff=1
+#synclient TouchpadOff=1
 
 # Set mouse acceleration.  Acceleration defines how much faster than the default
 # speed the moue will move.  The threshold is the velocity required before
@@ -61,7 +61,7 @@ autocutsel -fork -selection CLIPBOARD -buttonup -pause 1000 &
 autocutsel -fork -selection PRIMARY -buttonup -pause 1000 &
 
 # Set a wallpaper!
-feh --bg-scale $HOME/data/wallpaper.jpg
+#feh --bg-scale $HOME/data/wallpaper.jpg
 
 # If using .xinitrc, this file will not be read by default, so read merge
 # it here.
@@ -82,4 +82,5 @@ redshift -o -l 0:0 -b 0.9 -t 6500:6500
 # forks into the background.
 #
 # See: https://wiki.archlinux.org/index.php/Xinitrc
-#exec dbus-launch /usr/bin/i3
+/usr/bin/VBoxClient-all
+exec dbus-launch /usr/bin/i3
