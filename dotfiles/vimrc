@@ -124,6 +124,8 @@ let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
 let g:neocomplcache_enable_at_startup=1
 let g:quickfix_is_open=0
+let g:slime_sessionname='repl'
+let g:slime_no_mappings=1
 let g:solarized_bold=0
 let g:solarized_italic=0
 let g:solarized_termcolors=256
@@ -199,6 +201,7 @@ noremap k gk
 cnoremap w!! w !sudo tee % >/dev/null
 
 " Normal mode mappings.
+nmap <leader>x <plug>SlimeParagraphSend
 nnoremap <c-g> <c-]>
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
@@ -217,15 +220,16 @@ nnoremap <leader>rr :RepoRoot<cr>:pwd<cr>
 nnoremap <leader>sd :SDelete<cr>
 nnoremap <leader>ss :SSave<cr>
 nnoremap <silent> <leader>t :!ctags -R * &<cr><cr>
-nnoremap <leader>v :call Screen_Vars()<cr>
 nnoremap <leader>q :qa!<cr>
-nnoremap <leader>x vip"ry :call Send_to_Screen(@r)<cr>
 nnoremap <leader>= <c-w>=<cr>
 nnoremap <leader>/ :set hlsearch!<cr>
 
-" Visual mode mappings.
+" Visual mode and selection mode mappings.
 vnoremap < <gv
 vnoremap > >gv
+
+" Visual mode only mappings.
+xmap <leader>x <plug>SlimeRegionSend
 
 " Insert mode mappings
 "   See: http://vim.wikia.com/wiki/Fix_arrow_keys_that_display_A_B_C_D_on_remote_shell
