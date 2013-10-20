@@ -16,5 +16,4 @@ terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 vbell off
 vbell_msg ^G
 
-screen -t ruby    0 sh -c "irb; bash -l"
-screen -t bash    1 bash -l
+screen -t repl 0 sh -c "bash -l"
