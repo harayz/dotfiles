@@ -43,3 +43,5 @@ case "$TERM" in
     *)
   ;;
 esac
+
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
