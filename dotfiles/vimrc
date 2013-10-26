@@ -19,7 +19,7 @@
 
 " These set directives must be set first.
 set nocompatible
-set clipboard=unnamedplus
+set clipboard=autoselect,unnamedplus
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
@@ -54,6 +54,7 @@ set list
 set listchars=tab:│\ ,trail:·
 set modelines=0
 set mouse=a
+set mousemodel=popup
 set nobackup
 set noerrorbells
 set nofoldenable
@@ -125,7 +126,9 @@ let g:html_indent_style1='inc'
 let g:jellybeans_background_color_256='001111'
 let g:neocomplcache_enable_at_startup=1
 let g:quickfix_is_open=0
-let g:slime_sessionname='repl'
+let g:slime_default_config={'socket_name': 'default', 'target_pane': ':'}
+let g:slime_sessionname='0'
+let g:slime_target='tmux'
 let g:slime_no_mappings=1
 let g:solarized_bold=0
 let g:solarized_italic=0
@@ -224,6 +227,7 @@ nnoremap <silent> <leader>t :!ctags -R * &<cr><cr>
 nnoremap <leader>q :qa!<cr>
 nnoremap <leader>= <c-w>=<cr>
 nnoremap <leader>/ :set hlsearch!<cr>
+nnoremap <middlemouse> :set paste<cr>i<middlemouse>:set nopaste<cr>
 
 " Visual mode and selection mode mappings.
 vnoremap < <gv
@@ -245,6 +249,7 @@ inoremap <expr> OB pumvisible() ?
     \ '<c-n>' : '<down>'
 inoremap <expr> OA pumvisible() ?
     \ '<c-p>' : '<up>'
+inoremap <middlemouse> :set paste<cr><middlemouse>:set nopaste<cr>
 inoremap # X#
 
 " Autocmds
