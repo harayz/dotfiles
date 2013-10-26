@@ -36,6 +36,7 @@ URxvt.matcher.button: 1
 URxvt.modifier: mod4
 URxvt.perl-ext-common: clipboard,default,matcher,selection
 URxvt.preeditType: OnTheSpot,None
+URxvt.reverseVideo: True
 URxvt.saveLines: 1000
 URxvt.scrollBar_right: true
 URxvt.scrollColor: #202020
