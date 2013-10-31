@@ -107,9 +107,9 @@ let g:bufferline_active_highlight='bufferline_selected'
 let g:bufferline_active_buffer_left='['
 let g:bufferline_active_buffer_right=']'
 let g:bufferline_echo=0
-let g:bufferline_fixed_index=0
+let g:bufferline_fixed_index=-1
 let g:bufferline_inactive_highlight='airline_c'
-let g:bufferline_rotate=0
+let g:bufferline_rotate=1
 let g:bufferline_separator=' '
 let g:bufferline_show_bufnr=1
 let g:csv_autocmd_arrange=1
@@ -126,7 +126,9 @@ let g:html_indent_style1='inc'
 let g:jellybeans_background_color_256='001111'
 let g:neocomplcache_enable_at_startup=1
 let g:quickfix_is_open=0
-let g:slime_sessionname='repl'
+let g:slime_default_config={'socket_name': 'default', 'target_pane': ':'}
+let g:slime_sessionname='0'
+let g:slime_target='tmux'
 let g:slime_no_mappings=1
 let g:solarized_bold=0
 let g:solarized_italic=0
@@ -211,6 +213,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <c-n> :bnext<cr>
 nnoremap <c-p> :bprev<cr>
+nnoremap <leader><tab> :Scratch<cr>
 nnoremap <leader>, :Gstatus<cr>
 nnoremap <leader>cc :lcd %:p:h<cr>:pwd<cr>
 nnoremap <leader>d :bd<cr>:syn on<cr>
