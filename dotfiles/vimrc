@@ -16,6 +16,9 @@
 " A note about setting mouse=a: it turns out you can't copy and paste symbols
 " like ツ with mouse=a unless you hold shift while selecting with the mouse
 " or hold shift when pasting (alternatively you can disable mouse=a).
+"
+" A note about accessing the clipboard over SSH: make sure to have X11
+" forwarding turned on and use Y/P to yank and paste over a remote session.
 
 " These set directives must be set first.
 set nocompatible
@@ -107,9 +110,9 @@ let g:bufferline_active_highlight='bufferline_selected'
 let g:bufferline_active_buffer_left='['
 let g:bufferline_active_buffer_right=']'
 let g:bufferline_echo=0
-let g:bufferline_fixed_index=0
+let g:bufferline_fixed_index=-1
 let g:bufferline_inactive_highlight='airline_c'
-let g:bufferline_rotate=0
+let g:bufferline_rotate=1
 let g:bufferline_separator=' '
 let g:bufferline_show_bufnr=1
 let g:csv_autocmd_arrange=1
@@ -196,8 +199,9 @@ noremap H <nop>
 noremap J <nop>
 noremap K <nop>
 noremap L <nop>
+noremap P :r!xclip -o -sel clip<cr>
 noremap <silent> T :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
-noremap Y y$
+noremap Y :!xclip -f -sel clip<cr>
 noremap j gj
 noremap k gk
 
@@ -213,6 +217,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 nnoremap <c-n> :bnext<cr>
 nnoremap <c-p> :bprev<cr>
+nnoremap <leader><tab> :Scratch<cr>
 nnoremap <leader>, :Gstatus<cr>
 nnoremap <leader>cc :lcd %:p:h<cr>:pwd<cr>
 nnoremap <leader>d :bd<cr>:syn on<cr>
