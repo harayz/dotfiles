@@ -33,6 +33,7 @@ set autoindent
 set autoread
 set background=dark
 set backspace=indent,eol,start
+set cmdheight=2
 set complete=.,w,b,t,i
 set completeopt=longest,menuone
 set copyindent
@@ -199,9 +200,8 @@ noremap H <nop>
 noremap J <nop>
 noremap K <nop>
 noremap L <nop>
-noremap P :r!xclip -o -sel clip<cr>
 noremap <silent> T :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
-noremap Y :!xclip -f -sel clip<cr>
+noremap <leader>y :!xclip -f -sel clip<cr>
 noremap j gj
 noremap k gk
 
@@ -229,10 +229,10 @@ nnoremap <leader>rr :RepoRoot<cr>:pwd<cr>
 nnoremap <leader>sd :SDelete<cr>
 nnoremap <leader>ss :SSave<cr>
 nnoremap <silent> <leader>t :!ctags -R * &<cr><cr>
+nnoremap <leader>p :r!xclip -o -sel clip<cr>
 nnoremap <leader>q :qa!<cr>
 nnoremap <leader>= <c-w>=<cr>
 nnoremap <leader>/ :set hlsearch!<cr>
-nnoremap <middlemouse> :set paste<cr>i<middlemouse>:set nopaste<cr>
 
 " Visual mode and selection mode mappings.
 vnoremap < <gv
@@ -254,8 +254,10 @@ inoremap <expr> OB pumvisible() ?
     \ '<c-n>' : '<down>'
 inoremap <expr> OA pumvisible() ?
     \ '<c-p>' : '<up>'
-inoremap <middlemouse> :set paste<cr><middlemouse>:set nopaste<cr>
 inoremap # X#
+
+" User commands
+command Paste execute 'set paste | insert | set nopaste'
 
 " Autocmds
 autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
