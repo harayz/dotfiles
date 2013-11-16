@@ -19,6 +19,11 @@
 "
 " A note about accessing the clipboard over SSH: make sure to have X11
 " forwarding turned on and use Y/P to yank and paste over a remote session.
+"
+" A note about figuring out different plugin interactions: you can type map,
+" imap, xmap, cmap, etc. by themselves to have Vim show you the different
+" mappings that have been set.  Some roguish plugins may like to play around
+" with your mappings without asking you first, so be sure to check.
 
 " These set directives must be set first.
 set nocompatible
@@ -33,6 +38,7 @@ set autoindent
 set autoread
 set background=dark
 set backspace=indent,eol,start
+set cmdheight=2
 set complete=.,w,b,t,i
 set completeopt=longest,menuone
 set copyindent
@@ -59,8 +65,10 @@ set modelines=0
 set mouse=a
 set mousemodel=popup
 set nobackup
+set nocindent
 set noerrorbells
 set nofoldenable
+set nosmartindent
 set noswapfile
 set novisualbell
 set number
@@ -75,7 +83,6 @@ set showcmd
 set showmode
 set showmatch
 set smartcase
-set smartindent
 set smarttab
 set softtabstop=2
 set t_Co=256
@@ -105,17 +112,18 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_section_x='%{&ft} %{&fenc}'
 let g:airline_section_y='fo=%{&fo} tw=%{&tw} l=%{&list}'
-let g:airline_section_z='%p%% %3l:%3c'
+let g:airline_section_z='%3p%% %3l:%3c'
 let g:airline_theme='jellybeans'
 let g:bufferline_active_highlight='bufferline_selected'
 let g:bufferline_active_buffer_left='['
 let g:bufferline_active_buffer_right=']'
 let g:bufferline_echo=0
-let g:bufferline_fixed_index=-1
+let g:bufferline_fixed_index=1
 let g:bufferline_inactive_highlight='airline_c'
 let g:bufferline_rotate=1
+let g:bufferline_solo_highlight=0
 let g:bufferline_separator=' '
-let g:bufferline_show_bufnr=1
+let g:bufferline_show_bufnr=0
 let g:csv_autocmd_arrange=1
 let g:ctrlp_by_filename=1
 let g:ctrlp_clear_cache_on_exit=0
@@ -129,19 +137,21 @@ let g:html_indent_script1='inc'
 let g:html_indent_style1='inc'
 let g:jellybeans_background_color_256='001111'
 let g:neocomplcache_enable_at_startup=1
+let g:pathogen_disabled=[]
 let g:quickfix_is_open=0
 let g:slime_default_config={'socket_name': 'default', 'target_pane': ':'}
 let g:slime_sessionname='0'
 let g:slime_target='tmux'
 let g:slime_no_mappings=1
-let g:solarized_bold=0
-let g:solarized_italic=0
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
 let g:startify_custom_header='        Sup son? ( ¯\_(ツ)_/¯ )'
 let g:startify_files_number=5
 let g:startify_list_order=['sessions', 'files', 'bookmarks']
-let g:startify_session_persistence=1
+let g:startify_session_persistence=0
+
+" Do not enable vim-eclim if Eclipse is not available.
+if !executable('eclipse') && !executable('eclipse38')
+  call add(g:pathogen_disabled, 'vim-eclim')
+endif
 
 call pathogen#infect()
 syntax on
@@ -232,7 +242,6 @@ nnoremap <leader>p :r!xclip -o -sel clip<cr>
 nnoremap <leader>q :qa!<cr>
 nnoremap <leader>= <c-w>=<cr>
 nnoremap <leader>/ :set hlsearch!<cr>
-nnoremap <middlemouse> :set paste<cr>i<middlemouse>:set nopaste<cr>
 
 " Visual mode and selection mode mappings.
 vnoremap < <gv
@@ -254,8 +263,10 @@ inoremap <expr> OB pumvisible() ?
     \ '<c-n>' : '<down>'
 inoremap <expr> OA pumvisible() ?
     \ '<c-p>' : '<up>'
-inoremap <middlemouse> :set paste<cr><middlemouse>:set nopaste<cr>
 inoremap # X#
+
+" User commands
+command Paste execute 'set paste | insert | set nopaste'
 
 " Autocmds
 autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\s\+$', -1)
