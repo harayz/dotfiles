@@ -1,6 +1,5 @@
-dotfiles/i3/log
-dotfiles/vim/.netrwhist
-dotfiles/vim/session
-dotfiles/vim/eclim
-tags
-tmp
+# This is the gitignore file for this git repository.
+# My global gitignore is in .global-gitignore.
+.i3/log
+.vim/.netrwhist
+.vim/session
