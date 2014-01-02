@@ -224,7 +224,7 @@ noremap J <nop>
 noremap K <nop>
 noremap L <nop>
 noremap <silent> T :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
-noremap <leader>y :!xclip -f -sel clip<cr>
+noremap <silent> <leader>y :<c-u>call system('xclip -f -sel clip')<cr>
 noremap j gj
 noremap k gk
 
